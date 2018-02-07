@@ -13,10 +13,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    const results = getMovies();
+  async componentDidMount() {
+    const results = await getMovies();
     console.log(results)
-    console.log(this.props)
     // this.props.loadMovies(results)
   }
 
