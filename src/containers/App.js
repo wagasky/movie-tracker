@@ -15,8 +15,7 @@ class App extends Component {
 
   async componentDidMount() {
     const results = await getMovies();
-    console.log(results)
-    // this.props.loadMovies(results)
+    this.props.loadMovies(results)
   }
 
   render() {
@@ -38,7 +37,4 @@ export const mapDispatchToProps = (dispatch) => ({
   showFavorites: filter => dispatch(showFavorites(filter))
 })
 
-connect(mapStateToProps, mapDispatchToProps)(App);
-
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
