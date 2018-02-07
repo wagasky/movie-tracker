@@ -12,5 +12,6 @@ export const mockData = [{
   "backdrop_path": "/iuyE1qy9HoTsMg0DHB1KJxM94DJ.jpg",
   "adult": false,
   "overview": "The third installment of the Fifty Shades Trilogy.",
-  "release_date": "2018-02-07"
+  "release_date": "2018-02-07",
+  "favorite": false
 }];
