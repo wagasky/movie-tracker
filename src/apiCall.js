@@ -15,6 +15,7 @@ export const getAllUsers = async () => {
   
   const { results } = await response.json();
 
+
   return results;
 }
 
@@ -32,8 +33,7 @@ export const userSignIn = async (email, password) => {
   });
   const jsonResponse = await response.json();
 
-// was results - I changed to jsonResponse
-  return jsonResponse;
+  return results;
 }
 
 export const addNewUser = async () => {
