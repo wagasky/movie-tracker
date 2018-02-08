@@ -13,10 +13,10 @@ class LogIn extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
-    const type = e.target.className;
-    const input = e.target.value;
+    const field = e.target.className;
+    const value = e.target.value;
 
-    this.setState({ [type]: input });
+    this.setState({ [field]: value });
   }
 
   render() {
