@@ -29,6 +29,7 @@ class App extends Component {
         <Route exact path='/' component={ MoviesDisplay }/>
         <Route exact path='/login' component={ Splash } />
         <Route exact path='/favorites' component={ FavoritesDisplay } />
+        {/* <MovieDisplay /> */}
       </div>
     );
   }
