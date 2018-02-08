@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadMovies, toggleFavorite, showFavorites } from '../actions/index.js';
-import { getMovies } from '../apiCall';
+import { getMovies, getDatabaseInfo } from '../apiCall';
 import { connect } from 'react-redux';
 import './App.css';
 
@@ -16,6 +16,9 @@ class App extends Component {
   async componentDidMount() {
     const results = await getMovies();
     this.props.loadMovies(results)
+
+    const databaseResults = await getDatabaseInfo();
+    console.log(databaseResults)
   }
 
   render() {
