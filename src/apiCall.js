@@ -32,7 +32,8 @@ export const userSignIn = async (email, password) => {
   });
   const jsonResponse = await response.json();
 
-  return results;
+// was results - I changed to jsonResponse
+  return jsonResponse;
 }
 
 export const addNewUser = async () => {

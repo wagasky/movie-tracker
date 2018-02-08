@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { loadMovies, toggleFavorite, showFavorites } from '../actions/index.js';
 import { getMovies, getDatabaseInfo } from '../apiCall';
 import { connect } from 'react-redux';
+import { Route, NavLink, Switch, Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import LogIn from '../components/LogIn';
+import Splash from '../components/Splash';
+import MoviesDisplay from '../components/MoviesDisplay';
+import FavoritesDisplay from '../components/FavoritesDisplay';
+import Nav from '../components/Nav';
+
 import './App.css';
 
 class App extends Component {
@@ -25,8 +32,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        { <Nav /> }
         <p>Movie Tracker</p>
-        { <LogIn /> }
+        <Route exact path='/' component={ MoviesDisplay }/>
+        <Route exact path='/login' component={ Splash } />
+        <Route exact path='/favorites' component={ FavoritesDisplay } />
       </div>
     );
   }
@@ -42,4 +52,4 @@ export const mapDispatchToProps = (dispatch) => ({
   showFavorites: filter => dispatch(showFavorites(filter))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
