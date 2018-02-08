@@ -31,7 +31,8 @@ export const userSignIn = async (email, password) => {
       password: password
     })
   });
-  const jsonResponse = await response.json();
+
+  const results = await response.json();
 
   return results;
 }

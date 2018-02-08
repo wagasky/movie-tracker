@@ -13,14 +13,6 @@ import Nav from '../components/Nav';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-
-    }
-  }
-
   async componentDidMount() {
     const results = await getMovies();
     this.props.loadMovies(results)
@@ -37,6 +29,7 @@ class App extends Component {
         <Route exact path='/' component={ MoviesDisplay }/>
         <Route exact path='/login' component={ Splash } />
         <Route exact path='/favorites' component={ FavoritesDisplay } />
+        {/* <MovieDisplay /> */}
       </div>
     );
   }
