@@ -5,14 +5,24 @@ import { toggleFavorite } from '../actions/index';
 
 class Movie extends Component {
 
+
+
   renderMovie = () => {
-    const posterPath = this.props.poster;
-    console.log(posterPath)
-     return <img onClick={this.handleFavorite} src={`https://image.tmdb.org/t/p/w500${posterPath}`} />
+    const posterPath = this.props.poster; 
+    return <img onClick={this.handleFavorite} src={ posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null }/>
+
   }
 
-  handleFavorite = () => {
-    // this.props.toggleFavorite(this.props.id)
+  handleFavorite = () => {   
+    this.props.toggleFavorite(this.props.id);
+    this.addToFavoritesArray();
+
+  }
+
+  addToFavoritesArray = () => {
+    const movies = this.props.movies;
+    const favorites = movies.filter( movie => movie.favorite === true);
+
   }
 
 
@@ -37,7 +47,8 @@ class Movie extends Component {
 }
 
 export const mapStateToProps = (store) => ({
-  movies: store.movies
+  movies: store.movies, 
+  favorite: store.favorite,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
