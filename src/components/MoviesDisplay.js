@@ -15,9 +15,13 @@ class movieDisplay extends Component {
   renderedMovies = () => this.props.movies.map( ( movie ) => {
     return (
       <Movie key={ movie.id }
-             poster={ movie.poster_path }/>
+             poster={ movie.poster_path }
+             id={ movie.id }
+             />
     )
   })
+
+
 
 
   
@@ -37,7 +41,7 @@ export const mapStateToProps = (store) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   loadMovies: movies => dispatch(loadMovies(movies)),
-  // showFavorites: filter => dispatch(showFavorites(filter))
+  showFavorites: filter => dispatch(showFavorites(filter))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(movieDisplay);

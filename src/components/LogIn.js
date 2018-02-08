@@ -19,10 +19,16 @@ class LogIn extends Component {
     this.setState({ [field]: value });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    userSignIn(this.state.email, this.state.password);
+  }
+
   render() {
     return (
       <div className="log-in-form">
-        <form onSubmit={userSignIn}>
+        <form onSubmit={this.handleSubmit}>
           <input type="text" className="email" placeholder="email address" onChange={this.handleChange}/>
           <input type="password" className="password" placeholder="password" onChange={this.handleChange}/>
           <input type="submit" />

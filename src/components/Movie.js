@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { toggleFavorite } from '../actions/index';
 
 class Movie extends Component {
 
   renderMovie = () => {
     const posterPath = this.props.poster;
     console.log(posterPath)
-     return <img src={`https://image.tmdb.org/t/p/w500${posterPath}`} />
+     return <img onClick={this.handleFavorite} src={`https://image.tmdb.org/t/p/w500${posterPath}`} />
   }
 
+  handleFavorite = () => {
+    // this.props.toggleFavorite(this.props.id)
+  }
 
 
   // for displaying individual movies:
@@ -37,7 +41,7 @@ export const mapStateToProps = (store) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  // handleFavorite: 
+  toggleFavorite: movieId => dispatch(toggleFavorite(movieId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movie);
