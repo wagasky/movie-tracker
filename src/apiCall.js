@@ -22,7 +22,9 @@ export const getAllUsers = async () => {
 
 //this will be a post 
 export const userSignIn = async (email, password) => {
-  const response = await fetch('http://localhost:3001/api/users', {
+  console.log(email);
+  console.log(password);
+  const response = await fetch('api/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -33,8 +35,8 @@ export const userSignIn = async (email, password) => {
     })
   });
 
+debugger;
   const results = await response.json();
-
   return results;
 }
 

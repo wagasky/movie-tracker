@@ -12,7 +12,7 @@ class Movie extends Component {
   }
 
   handleFavorite = () => {
-    this.props.toggleFavorite(this.props.id)
+    // this.props.toggleFavorite(this.props.id)
   }
 
 
