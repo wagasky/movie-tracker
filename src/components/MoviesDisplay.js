@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Movie from './Movie'
+import Movie from './Movie';
 
 
-const FavoritesDisplay = () => {
+const MoviesDisplay = () => {
 
   return (
     <div>
-      <p>I'm the favorites!</p>
+      <p>I'm the all the movies!</p>
       <Movie />
     </div>
   )
 }
 
-export default FavoritesDisplay;
+export default MoviesDisplay;

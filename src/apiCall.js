@@ -15,6 +15,7 @@ export const getAllUsers = async () => {
   
   const { results } = await response.json();
 
+
   return results;
 }
 
