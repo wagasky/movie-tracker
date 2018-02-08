@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadMovies, toggleFavorite, showFavorites } from '../actions/index.js';
-import { getMovies, getDatabaseInfo } from '../apiCall';
+import { getMovies, getAllUsers } from '../apiCall';
 import { connect } from 'react-redux';
 import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
@@ -13,13 +13,9 @@ import Nav from '../components/Nav';
 import './App.css';
 
 class App extends Component {
-  async componentDidMount() {
-    const results = await getMovies();
-    this.props.loadMovies(results)
 
-    const databaseResults = await getDatabaseInfo();
-    console.log(databaseResults)
-  }
+    // const databaseResults = await getAllUsers();
+    // console.log(databaseResults)
 
   render() {
     return (
@@ -35,14 +31,4 @@ class App extends Component {
   }
 }
 
-export const mapStateToProps = (store) => ({
-  movies: store.movies
-})
-
-export const mapDispatchToProps = (dispatch) => ({
-  handleClick: id => dispatch(toggleFavorite(id)),
-  loadMovies: movies => dispatch(loadMovies(movies)),
-  showFavorites: filter => dispatch(showFavorites(filter))
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default App

@@ -1,7 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Movie = () => {
+class Movie extends Component {
+
+  renderMovie = () => {
+    const posterPath = this.props.poster;
+    console.log(posterPath)
+     return <img src={`https://image.tmdb.org/t/p/w500${posterPath}`} />
+  }
+
+
 
   // for displaying individual movies:
   // const displayMovies = movies.map((movie, i) => {
@@ -12,17 +21,23 @@ const Movie = () => {
   //   )
   // })
 
-  // return (
-  //   <div>
-  //     { displayMovies }
-  //   </div>
-  // )
 
-  return (
-    <div>
-      <p>I'm a movie!</p>
-    </div>
-  )
+  render() {
+    return (
+      <div>
+        <p>I'm a movie!</p>
+        { this.renderMovie() }
+      </div>
+    )
+  }
 }
 
-export default Movie;
+export const mapStateToProps = (store) => ({
+  movies: store.movies
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  // handleFavorite: 
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);
