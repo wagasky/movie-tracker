@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { loadMovies, toggleFavorite, showFavorites } from '../actions/index.js';
-import { getMovies, getAllUsers } from '../apiCall';
+import { getMovies, getDatabaseInfo } from '../apiCall';
 import { connect } from 'react-redux';
 import LogIn from '../components/LogIn';
-import MovieDisplay from '../components/MovieDisplay';
 import './App.css';
 
 class App extends Component {
@@ -17,18 +16,17 @@ class App extends Component {
 
   async componentDidMount() {
     const results = await getMovies();
-    this.props.loadMovies(results);
+    this.props.loadMovies(results)
 
-    // const userResults = await getAllUsers();
-    // console.log(userResults);
+    const databaseResults = await getDatabaseInfo();
+    console.log(databaseResults)
   }
 
   render() {
     return (
       <div className="App">
         <p>Movie Tracker</p>
-        {/* <LogIn /> */}
-        { <MovieDisplay /> }
+        { <LogIn /> }
       </div>
     );
   }

@@ -26,12 +26,11 @@ export const userSignIn = async (email, password) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      email,
-      password
+      email: email,
+      password: password
     })
   });
-  const results = await response.json();
-  console.log(results)
+  const jsonResponse = await response.json();
 
   return results;
 }
