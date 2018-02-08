@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { loadMovies, toggleFavorite, showFavorites } from '../actions/index.js';
 import { getMovies, getDatabaseInfo } from '../apiCall';
 import { connect } from 'react-redux';
+import LogIn from '../components/LogIn';
 import './App.css';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <p>Movie Tracker</p>
+        { <LogIn /> }
       </div>
     );
   }
