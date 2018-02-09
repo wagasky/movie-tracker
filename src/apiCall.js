@@ -35,20 +35,37 @@ export const userSignIn = async (email, password) => {
     })
   });
 
-debugger;
   const results = await response.json();
   return results;
 }
 
-export const addNewUser = async () => {
-  const response = await fetch('http://localhost:3001/api/users/new');
+export const addNewUser = async (name, email, password) => {
+  const response = await fetch('api/users/new', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      password: password
+    })
+  });
   const { results } = await response.json();
 
   return results;
 }
 
-export const addFavorite = async () => {
-  const response = await fetch('http://localhost:3001/api/users/favorites/new');
+export const addFavorite = async (array) => {
+  const response = await fetch('api/users/favorites/new', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+
+    })
+  });
   const { results } = await response.json();
 
   return results;

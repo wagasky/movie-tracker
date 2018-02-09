@@ -20,3 +20,8 @@ export const showFavorites = (filter) => ({
   //we would pass in the user id 
 })
 
+export const setCurrentUser = (userId) => ({
+  type: 'SET_CURRENT_USER',
+  userId
+})
+
