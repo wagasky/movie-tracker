@@ -13,9 +13,15 @@ class movieDisplay extends Component {
 
 
   renderedMovies = () => this.props.movies.map( ( movie ) => {
+    const rating = Math.round(movie.popularity);
+
     return (
       <Movie key={ movie.id }
              poster={ movie.poster_path }
+             title={ movie.title }
+             rating={ rating }
+             overview={ movie.overview }
+             releaseDate={ movie.release_date }
              id={ movie.id }
              />
     )

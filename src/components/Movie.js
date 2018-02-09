@@ -9,8 +9,18 @@ class Movie extends Component {
 
   renderMovie = () => {
     const posterPath = this.props.poster; 
-    return <img onClick={this.handleFavorite} src={ posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null }/>
 
+    return (
+      <div>
+        <img onClick={this.handleFavorite} 
+        src={ posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : null }
+        />
+        <h3>Title: {this.props.title}</h3>
+        <p>Release Date: {this.props.releaseDate}</p>
+        <p>Popularity: {this.props.rating}%</p>
+        <p>Overview: {this.props.overview}</p>
+      </div>
+    )
   }
 
   handleFavorite = () => {   
@@ -39,7 +49,6 @@ class Movie extends Component {
   render() {
     return (
       <div>
-        <p>I'm a movie!</p>
         { this.renderMovie() }
       </div>
     )
