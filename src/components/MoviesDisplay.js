@@ -11,7 +11,6 @@ class movieDisplay extends Component {
     this.props.loadMovies(results)
   }
 
-
   renderedMovies = () => this.props.movies.map( ( movie ) => {
     const rating = Math.round(movie.popularity);
 
@@ -26,10 +25,6 @@ class movieDisplay extends Component {
              />
     )
   })
-
-
-
-
   
   render() {
     console.log()

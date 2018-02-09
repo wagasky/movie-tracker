@@ -6,7 +6,6 @@ import { toggleFavorite } from '../actions/index';
 class Movie extends Component {
 
 
-
   renderMovie = () => {
     const posterPath = this.props.poster; 
 
@@ -26,13 +25,37 @@ class Movie extends Component {
   handleFavorite = () => {   
     this.props.toggleFavorite(this.props.id);
     this.addToFavoritesArray();
-
   }
 
-  addToFavoritesArray = () => {
-    const movies = this.props.movies;
-    const favorites = movies.filter( movie => movie.favorite === true);
+  // we're going to want to separate functions
+  // I don't think we'll want them in this file - maybe the reducer?
 
+  // addFavorite = (movieId) => {
+  //   const favorites = this.props.favorite;
+  //   const movies = this.props.movies
+  //   const newFavorite = favorites.find( movie => {
+  //     if (!movieId) {
+  //       return this.props.movies.id
+  //     }
+  //   }
+  //   const updatedFavorites = [...favorites, newFavorite]
+
+  //   return updatedFavorites;
+  // }
+
+  // removeFavorite = (movieId) => {
+  //   const favorites = this.props.favorite;
+  //   const updatedFavorites = favorites.filter(movie => movie.id !== action.movie.id);
+  //   return updatedFavorites;
+  // }
+
+  // our old favorites function below
+
+  addToFavoritesArray = (movieId) => {
+    console.log('favorites was clicked', movieId)
+    // const favorites = this.props.favorite;
+    // const movies = this.props.movies
+    // const updatedFavorites = favorites.filter( movie => {
   }
 
 

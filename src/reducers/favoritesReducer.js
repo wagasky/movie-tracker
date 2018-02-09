@@ -8,3 +8,16 @@ export const favoritesReducer = (state=[], action) => {
       return state
   }
 }
+
+// once we have our calls:
+
+// export const favoritesReducer = (state=[], action) => {
+//   switch(action.type) {
+//     case 'SET_FAVORITES':
+//       return action.favorites; 
+//     case 'RESET_FAVORITES':
+//       return [];
+//     default: 
+//       return state;
+//   }
+// }
