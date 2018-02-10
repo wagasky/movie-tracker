@@ -27,12 +27,7 @@ class movieDisplay extends Component {
     )
   })
 
-
-
-
-  
   render() {
-    console.log()
     return (
       <div>
         { this.renderedMovies() }

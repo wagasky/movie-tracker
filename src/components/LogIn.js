@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../apiCall';
+import { connect } from 'react-redux';
+import { setUser, logOutUser } from '../actions/index';
+import * as actions from '../actions/index'
 
 class LogIn extends Component {
   constructor(props) {
     super(props);
     
     this.state ={
+      name: '',
       email: '',
-      password: ''
+      password: '',
     }
   }
 
@@ -19,10 +23,15 @@ class LogIn extends Component {
     this.setState({ [field]: value });
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
+
     e.preventDefault();
 
-    userSignIn(this.state.email, this.state.password);
+    const results = await userSignIn(this.state.email, this.state.password);
+    const user = await results.data
+    this.props.setUser(user)
+
+    
   }
 
   render() {
@@ -38,4 +47,19 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export const mapStateToProps = (store) => ({
+  user: store.user
+  // userId: store.user.id
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+  // logOutUser: (userId) => dispatch(setUser(userId))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn)
+
+
+
+
+

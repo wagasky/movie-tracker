@@ -13,9 +13,7 @@ export const getMovies = async () => {
 //this will be a get 
 export const getAllUsers = async () => {
   const response = await fetch('http://localhost:3001/api/users')
-  
   const { results } = await response.json();
-
 
   return results;
 }
@@ -35,7 +33,6 @@ export const userSignIn = async (email, password) => {
     })
   });
 
-debugger;
   const results = await response.json();
   return results;
 }
