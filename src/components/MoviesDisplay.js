@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { getMovies } from '../apiCall';
 import Movie from './Movie';
+import './MovieDisplay.css'
 
 class movieDisplay extends Component {
   async componentDidMount() {
     const results = await getMovies();
     this.props.loadMovies(results)
   }
-
 
   renderedMovies = () => this.props.movies.map( ( movie ) => {
     const rating = Math.round(movie.popularity);
@@ -29,7 +29,7 @@ class movieDisplay extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         { this.renderedMovies() }
       </div>
     )
