@@ -44,7 +44,7 @@ class LogIn extends Component {
   render() {
     return (
       <div className="log-in-form">
-        <form onSubmit={ this.handleSubmit }>
+        <form onSubmit={ this.loginSubmit }>
           <input type="text" 
                  name="email" 
                  placeholder="email address" 
@@ -55,7 +55,6 @@ class LogIn extends Component {
                  placeholder="password" 
                  value={ this.state.password } 
                  onChange={ this.handleChange }/>
-
           <button type="submit" 
                   className="submit-button">Log In</button>
           <p>Don't have an account? <Link to="/register">Sign-up now</Link></p>
