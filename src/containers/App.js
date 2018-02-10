@@ -25,7 +25,7 @@ class App extends Component {
         <h1>Movie Tracker</h1>
         <Route exact path='/' component={ MoviesDisplay }/>
         <Route exact path='/login' component={ Splash } />
-        <Route exact path='/register' component={ Register } />
+        <Route exact path='/register' component={ Splash } />
         <Route exact path='/favorites' component={ FavoritesDisplay } />
         {/* <MovieDisplay /> */}
       </div>
