@@ -10,21 +10,39 @@ class Nav extends Component {
   }
 
   render() {
+
+    if (this.props.user.name) {
+     return (
+        <div>
+          <nav> 
+            <NavLink to='/' className='nav'>All Movies</NavLink>
+            <NavLink to='/favorites' className='nav'>Favorites</NavLink>
+            <NavLink to='/login' className='nav'>Login</NavLink>
+            <button onClick={this.logOutUser}>Logout</button>
+          </nav>
+        </div>
+        )
+      }
+
     return (
       <div>
         <nav> 
           <NavLink to='/' className='nav'>All Movies</NavLink>
           <NavLink to='/favorites' className='nav'>Favorites</NavLink>
           <NavLink to='/login' className='nav'>Login</NavLink>
-          <button onClick={this.logOutUser}>Logout</button>
+          <NavLink to='/login' className='nav'>Register</NavLink>
         </nav>
       </div>
     )
   }
 }
 
+export const mapStateToProps = (store) => ({
+  user: store.current_user
+})
+
 export const mapDispatchToProps = (dispatch) => ({
   logOutUser: (user) => dispatch(logOutUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
