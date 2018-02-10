@@ -25,7 +25,7 @@ export const setUser = (user) => ({
   user
 })
 
-export const logOutUser = (userId) => ({
+export const logOutUser = (user) => ({
   type: 'LOG_OUT_USER',
-  userId
+  user
 })

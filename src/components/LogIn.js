@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../apiCall';
 import { connect } from 'react-redux';
-import { setUser, logOutUser } from '../actions/index';
+import { setUser } from '../actions/index';
 import * as actions from '../actions/index'
 
 class LogIn extends Component {
@@ -31,7 +31,6 @@ class LogIn extends Component {
     const user = await results.data
     this.props.setUser(user)
 
-    
   }
 
   render() {
@@ -49,17 +48,11 @@ class LogIn extends Component {
 
 export const mapStateToProps = (store) => ({
   user: store.user
-  // userId: store.user.id
 })
 
 export const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user)),
-  // logOutUser: (userId) => dispatch(setUser(userId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn)
-
-
-
-
 
