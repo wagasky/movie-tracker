@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { redirect, withRouter } from 'react-router-dom';
+import { setUser } from '../actions/index';
+import * as actions from '../actions/index';
 import { userSignIn } from '../apiCall';
 import './LogIn.css'
+import { connect } from 'react-redux';
 
 class LogIn extends Component {
   constructor(props) {
@@ -8,7 +12,7 @@ class LogIn extends Component {
     
     this.state ={
       email: '',
-      password: ''
+      password: '',
     }
   }
 
@@ -20,10 +24,19 @@ class LogIn extends Component {
     this.setState({ [field]: value });
   }
 
-  handleSubmit = (e) => {
+  loginSubmit = async (e) => {
     e.preventDefault();
 
-    userSignIn(this.state.email, this.state.password);
+    const { email, password } = this.state
+    const results = await userSignIn( email, password );
+    const user = await results.data;
+
+    if (!results) {
+      alert('Oops! The email and password do not match');
+    } else {
+      this.props.setUser(user);
+      this.props.history.push('/favorites')
+    }
   }
 
   render() {
@@ -47,4 +60,8 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(LogIn));
