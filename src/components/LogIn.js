@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../apiCall';
 import { connect } from 'react-redux';
+import { redirect, withRouter } from 'react-router-dom';
 import { setUser } from '../actions/index';
-import * as actions from '../actions/index'
+import * as actions from '../actions/index';
 
 class LogIn extends Component {
   constructor(props) {
@@ -25,15 +26,13 @@ class LogIn extends Component {
   loginSubmit = async (e) => {
     e.preventDefault();
     const results = await userSignIn(this.state.email, this.state.password);
-    const user = await results.data
-
-    
+    const user = await results.data;
 
     if (!results) {
       alert('Oops! The email and password do not match');
     } else {
       this.props.setUser(user);
-      // this.props.history.push('/')
+      this.props.history.push('/favorites')
     }
 
   }
@@ -57,5 +56,5 @@ export const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user)),
 })
 
-export default connect(null, mapDispatchToProps)(LogIn)
+export default withRouter(connect(null, mapDispatchToProps)(LogIn))
 
