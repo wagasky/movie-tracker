@@ -3,6 +3,7 @@ import { redirect, withRouter } from 'react-router-dom';
 import { setUser } from '../actions/index';
 import * as actions from '../actions/index';
 import { userSignIn } from '../apiCall';
+import './LogIn.css'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './LogIn.css'
@@ -41,7 +42,6 @@ class LogIn extends Component {
   }
 
   render() {
-
     return (
       <div className="log-in-form">
         <form onSubmit={ this.handleSubmit }>
@@ -55,6 +55,7 @@ class LogIn extends Component {
                  placeholder="password" 
                  value={ this.state.password } 
                  onChange={ this.handleChange }/>
+
           <button type="submit" 
                   className="submit-button">Log In</button>
           <p>Don't have an account? <Link to="/register">Sign-up now</Link></p>
