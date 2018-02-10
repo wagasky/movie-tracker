@@ -50,11 +50,12 @@ class Register extends Component {
   render() {
     return (
       <div className="log-in-form">
-        <form onSubmit={this.registerSubmit}>
+        <form onSubmit={ this.registerSubmit }>
           <input type="text" className="name" placeholder="Your Name" name="email" onChange={this.handleChange}/>
           <input type="text" className="email" placeholder="email address" name="email" onChange={this.handleChange}/>
           <input type="password" className="password" placeholder="password" name="password" onChange={this.handleChange}/>
-          <input type="submit" />
+          <button type="submit"
+                  className="submit-button">Register</button>
         </form>
       </div>
     )
@@ -68,5 +69,3 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(Register));
-
-

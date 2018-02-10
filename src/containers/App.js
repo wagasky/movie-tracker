@@ -22,10 +22,10 @@ class App extends Component {
     return (
       <div className="App">
         { <Nav /> }
-        <p>Movie Tracker</p>
+        <h1>Movie Tracker</h1>
         <Route exact path='/' component={ MoviesDisplay }/>
         <Route exact path='/login' component={ Splash } />
-        <Route exact path='/register' component={ Register } />
+        <Route exact path='/register' component={ Splash } />
         <Route exact path='/favorites' component={ FavoritesDisplay } />
         {/* <MovieDisplay /> */}
       </div>

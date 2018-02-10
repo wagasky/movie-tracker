@@ -1,0 +1,8 @@
+.splash-page {
+  background-image: url('../movie.jpg');
+  width: 100%;
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -55px;
+}
