@@ -1,7 +1,9 @@
+/* eslint-disable */
+
 import * as actions from './index';
 import mockData from '../mockData';
 
-describe('all actions', () => {
+describe.only('all actions', () => {
 
   it('should return a type of LOAD_MOVIES, with movies', () => {
     const movies = mockData;
@@ -11,7 +13,7 @@ describe('all actions', () => {
       movies
     }
 
-    expect(actions.loadMovies(movies)).toEqual(expected)
+    expect(actions.loadMovies(movies)).toEqual(expected);
   })
 
   it('should return a type of TOGGLE_FAVORITE, with an id', () => {
@@ -21,7 +23,21 @@ describe('all actions', () => {
       id
     }
 
-    expect(actions.toggleFavorite(id)).toEqual(expected)
+    expect(actions.toggleFavorite(id)).toEqual(expected);
+  })
+
+  // getting a TypeError: environment.dispose is not a function
+
+  it.skip('should return a type of ADD_FAVORITE, with a userId and movieID', () => {
+    const userId = 0;
+    const movieId = 0
+    const expected = {
+      type: 'ADD_FAVORITE',
+      userId,
+      movieId
+    }
+
+    expect(actions.addFavorite(userId, movieId)).toEqual(expected);
   })
 
   it('should return a type of SHOW_FAVORITES, with a filter', () => {
@@ -33,4 +49,40 @@ describe('all actions', () => {
 
     expect(actions.showFavorites(filter)).toEqual(expected)
   })
+
+  it('should return a type of SET_USER, with a user', () => {
+    const user = {};
+    const expected = {
+      type: 'SET_USER',
+      user
+    }
+
+    expect(actions.setUser(user)).toEqual(expected)
+  })
+
+  it('should return a type of LOG_OUT_USER, with a user', () => {
+    const user = {};
+    const expected = {
+      type: 'LOG_OUT_USER',
+      user
+    }
+
+    expect(actions.logOutUser(user)).toEqual(expected)
+  })
+
+  it('should return a type of ADD_NEW_USER, with a name, email, and password', () => {
+    const userName = '';
+    const userEmail = '';
+    const userPassword = '';
+    const expected = {
+      type: 'ADD_NEW_USER',
+      userName,
+      userEmail,
+      userPassword
+    }
+
+    expect(actions.addNewUser(userName, userEmail, userPassword)).toEqual(expected)
+  })
+
+
 })

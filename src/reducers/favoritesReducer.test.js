@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import favoritesReducer from './favoritesReducer';
 import * as actions from '../actions';
 import mockData from '../mockData';
