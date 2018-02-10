@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { userSignIn } from '../apiCall';
 import { connect } from 'react-redux';
-import { setUser } from '../actions/index';
-import * as actions from '../actions/index'
+import { setUser} from '../actions/index';
+import { userSignIn, addNewUser } from '../apiCall'
 
-class LogIn extends Component {
+
+
+class Register extends Component {
   constructor(props) {
     super(props);
     
     this.state ={
+      name: '',
       email: '',
       password: '',
     }
@@ -22,20 +24,22 @@ class LogIn extends Component {
     this.setState({ [field]: value });
   }
 
-  loginSubmit = async (e) => {
+  registerSubmit = async (e) => {
+
+    const { name, email, password } = this.state
 
     e.preventDefault();
-    const results = await userSignIn(this.state.email, this.state.password);
-    const user = await results.data
+    const results = await addNewUser(name, email, password);
+    const userResults = await userSignIn(email, password);
+    const user = await userResults.data
     this.props.setUser(user)
-
   }
 
   render() {
-
     return (
       <div className="log-in-form">
-        <form onSubmit={this.loginSubmit}>
+        <form onSubmit={this.registerSubmit}>
+          <input type="text" className="name" placeholder="Your Name" name="email" onChange={this.handleChange}/>
           <input type="text" className="email" placeholder="email address" name="email" onChange={this.handleChange}/>
           <input type="password" className="password" placeholder="password" name="password" onChange={this.handleChange}/>
           <input type="submit" />
@@ -45,10 +49,14 @@ class LogIn extends Component {
   }
 }
 
+// export const mapStateToProps = (store) => ({
+//   name: store.user.name
+// })
 
 export const mapDispatchToProps = (dispatch) => ({
-  setUser: (user) => dispatch(setUser(user)),
+  addNewUser: (user) => dispatch(addNewUser(user)),
 })
 
-export default connect(null, mapDispatchToProps)(LogIn)
+export default connect(null, mapDispatchToProps)(Register)
+
 

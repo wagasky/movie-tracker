@@ -30,12 +30,14 @@ class Nav extends Component {
           <NavLink to='/' className='nav'>All Movies</NavLink>
           <NavLink to='/favorites' className='nav'>Favorites</NavLink>
           <NavLink to='/login' className='nav'>Login</NavLink>
-          <NavLink to='/login' className='nav'>Register</NavLink>
+          <NavLink to='/register' className='nav'>Register</NavLink>
         </nav>
       </div>
     )
   }
 }
+
+// route register to splash later
 
 export const mapStateToProps = (store) => ({
   user: store.current_user
