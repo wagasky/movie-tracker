@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../actions/index';
+import icon from '../like.png';
 import './Movie.css';
 
 class Movie extends Component {
@@ -21,9 +22,17 @@ class Movie extends Component {
           <p>Release Date: { this.props.releaseDate }</p>
           <p>Popularity: { this.props.rating } %</p>
           <p>Overview: { this.props.overview }</p>
+          <img src={ icon }
+               alt="favorite button" 
+               className="favorite-icon" 
+               onClick={this.addFavorite} />
         </div>
       </div>
     )
+  }
+
+  addFavorite = () => {
+    console.log('favorite');
   }
 
   handleFavorite = () => {   

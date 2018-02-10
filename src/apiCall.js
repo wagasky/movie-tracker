@@ -56,21 +56,21 @@ export const addNewUser = async (user) => {
 };
 
 export const addFavorite = async () => {
-  const response = await fetch('http://localhost:3001/api/users/favorites/new');
+  const response = await fetch('api/users/favorites/new');
   const { results } = await response.json();
 
   return results;
 };
 
-export const getFavorites = async () => {
-  const response = await fetch('http://localhost:3001/api/users/:id/favorites');
-  const { results } = await response.json();
+export const getFavorites = async (id) => {
+  const response = await fetch(`api/users/${id}/favorites`);
+  const results = await response.json();
 
   return results;
 };
 
-export const deleteFavorites = async () => {
-  const response = await fetch('http://localhost:3001/api/users/:id/favorites/:movie_id');
+export const deleteFavorites = async (userId, movieId) => {
+  const response = await fetch(`api/users/${userId}/favorites/${movieId}`);
   const { results } = await response.json();
 
   return results;

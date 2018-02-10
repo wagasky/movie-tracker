@@ -37,7 +37,7 @@ class LogIn extends Component {
       alert('Oops! The email and password do not match');
     } else {
       this.props.setUser(user);
-      this.props.history.push('/favorites')
+      this.props.history.push('/')
     }
   }
 
