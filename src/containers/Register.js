@@ -29,7 +29,7 @@ class Register extends Component {
     const { name, email, password } = this.state
 
     e.preventDefault();
-    const results = await addNewUser(name, email, password);
+    const results = await addNewUser({ name, email, password });
     const userResults = await userSignIn(email, password);
     const user = await userResults.data
     this.props.setUser(user)

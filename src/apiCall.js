@@ -43,9 +43,6 @@ export const addNewUser = async (user) => {
     },
     body: JSON.stringify(user)
   });
-  // await console.log(email);
-  // await console.log(password);
-  // await console.log(name)
 
   return await response.json();
 }
