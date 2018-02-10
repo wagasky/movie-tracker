@@ -13,17 +13,13 @@ export const getMovies = async () => {
 //this will be a get 
 export const getAllUsers = async () => {
   const response = await fetch('http://localhost:3001/api/users')
-  
   const { results } = await response.json();
-
 
   return results;
 }
 
-//this will be a post 
+
 export const userSignIn = async (email, password) => {
-  console.log(email);
-  console.log(password);
   const response = await fetch('api/users', {
     method: 'POST',
     headers: {
@@ -35,16 +31,20 @@ export const userSignIn = async (email, password) => {
     })
   });
 
-debugger;
   const results = await response.json();
   return results;
 }
 
-export const addNewUser = async () => {
-  const response = await fetch('http://localhost:3001/api/users/new');
-  const { results } = await response.json();
+export const addNewUser = async (user) => {
+  const response = await fetch('api/users/new', {
+    method: "POST", 
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  });
 
-  return results;
+  return await response.json();
 }
 
 export const addFavorite = async () => {

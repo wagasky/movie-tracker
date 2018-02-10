@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import LogIn from '../components/LogIn';
+import Register from '../containers/Register';
 import Splash from '../components/Splash';
 import MoviesDisplay from '../components/MoviesDisplay';
 import FavoritesDisplay from '../components/FavoritesDisplay';
@@ -24,6 +25,7 @@ class App extends Component {
         <p>Movie Tracker</p>
         <Route exact path='/' component={ MoviesDisplay }/>
         <Route exact path='/login' component={ Splash } />
+        <Route exact path='/register' component={ Register } />
         <Route exact path='/favorites' component={ FavoritesDisplay } />
         {/* <MovieDisplay /> */}
       </div>

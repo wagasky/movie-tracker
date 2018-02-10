@@ -20,3 +20,19 @@ export const showFavorites = (filter) => ({
   //we would pass in the user id 
 })
 
+export const setUser = (user) => ({
+  type: 'SET_USER',
+  user
+})
+
+export const logOutUser = (user) => ({
+  type: 'LOG_OUT_USER',
+  user
+})
+
+export const addNewUser = (userName, userEmail, userPassword) => ({
+  type: 'ADD_NEW_USER',
+  userName,
+  userEmail,
+  userPassword
+})

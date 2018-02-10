@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../apiCall';
+import { connect } from 'react-redux';
+import { setUser } from '../actions/index';
+import * as actions from '../actions/index'
 
 class LogIn extends Component {
   constructor(props) {
@@ -7,7 +10,7 @@ class LogIn extends Component {
     
     this.state ={
       email: '',
-      password: ''
+      password: '',
     }
   }
 
@@ -19,18 +22,22 @@ class LogIn extends Component {
     this.setState({ [field]: value });
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  loginSubmit = async (e) => {
 
-    userSignIn(this.state.email, this.state.password);
+    e.preventDefault();
+    const results = await userSignIn(this.state.email, this.state.password);
+    const user = await results.data
+    this.props.setUser(user)
+
   }
 
   render() {
+
     return (
       <div className="log-in-form">
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" className="email" placeholder="email address" onChange={this.handleChange}/>
-          <input type="password" className="password" placeholder="password" onChange={this.handleChange}/>
+        <form onSubmit={this.loginSubmit}>
+          <input type="text" className="email" placeholder="email address" name="email" onChange={this.handleChange}/>
+          <input type="password" className="password" placeholder="password" name="password" onChange={this.handleChange}/>
           <input type="submit" />
         </form>
       </div>
@@ -38,4 +45,10 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+
+export const mapDispatchToProps = (dispatch) => ({
+  setUser: (user) => dispatch(setUser(user)),
+})
+
+export default connect(null, mapDispatchToProps)(LogIn)
+
