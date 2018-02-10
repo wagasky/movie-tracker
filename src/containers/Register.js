@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { redirect, withRouter } from 'react-router-dom';
 import { setUser } from '../actions/index';
 import { userSignIn, addNewUser } from '../apiCall'
-
-
 
 class Register extends Component {
   constructor(props) {
@@ -25,31 +24,27 @@ class Register extends Component {
   }
 
   registerSubmit = async (e) => {
+    e.preventDefault();
 
     const { name, email, password } = this.state
-
-    e.preventDefault();
     const results = await addNewUser({ name, email, password });
     const userResults = await userSignIn(email, password);
-
     const user = await userResults.data
 
     this.autoLogIn(user)
-
-
-    // save for later - set current_user as recently registered user 
-    // to save user a step
-    // const user = await userResults.data
-    // this.props.setUser(user)
   }
 
   autoLogIn = async (user) => {
-    const { email, password } = user
+    const { email, password } = this.state;
 
-    const results = await userSignIn(email, password);
-    const userData = await results.data
-    this.props.setUser(userData)
-
+    if (!user) {
+      alert('That email is already registered. You can login instead');
+      this.props.history.push('/login');
+    } else {
+      const results = await userSignIn(email, password);
+      const userData = await results.data;
+      this.props.setUser(userData)
+    }
   }
 
   render() {
@@ -72,6 +67,6 @@ export const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(Register)
+export default withRouter(connect(null, mapDispatchToProps)(Register));
 
 

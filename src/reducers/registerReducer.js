@@ -3,4 +3,4 @@ export const registerReducer = (state={}, action) => {
     default: 
       return state
   }
-}
+};
