@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../actions/index';
 import icon from '../like.png';
@@ -32,7 +32,12 @@ class Movie extends Component {
   }
 
   addFavorite = () => {
-    console.log('favorite');
+
+    if(!this.props.current_user) {
+      this.props.history.push('/login')
+    } else {
+      console.log('add to favorites')
+    }
   }
 
   handleFavorite = () => {   
@@ -73,4 +78,4 @@ export const mapDispatchToProps = (dispatch) => ({
   toggleFavorite: movieId => dispatch(toggleFavorite(movieId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movie);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
