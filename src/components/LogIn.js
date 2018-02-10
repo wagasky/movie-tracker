@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { userSignIn } from '../apiCall';
+import './LogIn.css'
 
 class LogIn extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class LogIn extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
-    const field = e.target.className;
+    const field = e.target.name;
     const value = e.target.value;
 
     this.setState({ [field]: value });
@@ -28,9 +29,17 @@ class LogIn extends Component {
   render() {
     return (
       <div className="log-in-form">
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" className="email" placeholder="email address" onChange={this.handleChange}/>
-          <input type="password" className="password" placeholder="password" onChange={this.handleChange}/>
+        <form onSubmit={ this.handleSubmit }>
+          <input type="text" 
+                 name="email" 
+                 placeholder="email address" 
+                 value={ this.state.email } 
+                 onChange={ this.handleChange }/>
+          <input type="password" 
+                 name="password" 
+                 placeholder="password" 
+                 value={ this.state.password } 
+                 onChange={ this.handleChange }/>
           <input type="submit" />
         </form>
       </div>
