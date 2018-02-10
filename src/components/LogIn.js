@@ -23,11 +23,18 @@ class LogIn extends Component {
   }
 
   loginSubmit = async (e) => {
-
     e.preventDefault();
     const results = await userSignIn(this.state.email, this.state.password);
     const user = await results.data
-    this.props.setUser(user)
+
+    
+
+    if (!results) {
+      alert('Oops! The email and password do not match');
+    } else {
+      this.props.setUser(user);
+      // this.props.history.push('/')
+    }
 
   }
 

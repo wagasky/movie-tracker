@@ -20,19 +20,24 @@ export const getAllUsers = async () => {
 
 
 export const userSignIn = async (email, password) => {
-  const response = await fetch('api/users', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password
-    })
-  });
+  try {
+    const response = await fetch('api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    });
 
-  const results = await response.json();
-  return results;
+    const results = await response.json();
+    return results;
+
+  } catch (error) {
+    return false;
+  }
 }
 
 export const addNewUser = async (user) => {
