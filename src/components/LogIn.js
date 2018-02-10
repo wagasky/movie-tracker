@@ -4,7 +4,6 @@ import { setUser } from '../actions/index';
 import * as actions from '../actions/index';
 import { userSignIn } from '../apiCall';
 import { connect } from 'react-redux';
-import { setUser } from '../actions/index';
 import { Link } from 'react-router-dom';
 import './LogIn.css'
 
