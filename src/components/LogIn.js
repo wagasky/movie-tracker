@@ -3,16 +3,18 @@ import { redirect, withRouter } from 'react-router-dom';
 import { setUser } from '../actions/index';
 import * as actions from '../actions/index';
 import { userSignIn } from '../apiCall';
-<<<<<<< HEAD
 import { connect } from 'react-redux';
 <<<<<<< HEAD
 =======
 import { setUser } from '../actions/index';
-import * as actions from '../actions/index'
-=======
+import { Link } from 'react-router-dom';
+import * as actions from '../actions/index';
 import './LogIn.css'
+<<<<<<< HEAD
 >>>>>>> Clean up adjust movie card size and format LogIn.js
 >>>>>>> Clean up adjust movie card size and format LogIn.js
+=======
+>>>>>>> Link to register page from LogIn
 
 class LogIn extends Component {
   constructor(props) {
@@ -63,7 +65,8 @@ class LogIn extends Component {
                  value={ this.state.password } 
                  onChange={ this.handleChange }/>
           <button type="submit" 
-                  className="log-in-button" > Log In </button>
+                  className="submit-button">Log In</button>
+          <p>Don't have an account? <Link to="/register">Sign-up now</Link></p>
         </form>
       </div>
     )
@@ -75,4 +78,3 @@ export const mapDispatchToProps = (dispatch) => ({
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(LogIn));
-
