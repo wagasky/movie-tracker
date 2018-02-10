@@ -1,4 +1,3 @@
-
 import usersReducer from './usersReducer';
 import * as actions from '../actions/index';
 
@@ -9,7 +8,4 @@ describe('usersReducer', () => {
 
     expect(usersReducer(undefined, {})).toEqual(expected);
   })
-
-  
-
 }) 
