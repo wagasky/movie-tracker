@@ -62,7 +62,8 @@ class LogIn extends Component {
                  placeholder="password" 
                  value={ this.state.password } 
                  onChange={ this.handleChange }/>
-          <input type="submit" />
+          <button type="submit" 
+                  className="log-in-button" > Log In </button>
         </form>
       </div>
     )

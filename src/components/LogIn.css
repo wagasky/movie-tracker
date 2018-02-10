@@ -1,0 +1,26 @@
+input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  display: block;
+  margin: 15px auto;
+}
+
+.log-in-button {
+  padding: 10px;
+  width: 322px;
+  font-size: 1rem;
+  border-radius: 0;
+  margin-bottom: 15px;
+}
+
+form {
+  margin: auto;
+  width: 350px;
+  height: 300px;
+  padding: 40px;
+  background-color: black;
+  opacity: 0.75;
+  position: relative;
+  top: 150px;
+}

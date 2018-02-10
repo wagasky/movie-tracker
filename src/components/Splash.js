@@ -1,12 +1,10 @@
 import React from 'react';
 import LogIn from './LogIn';
-
+import './Splash.css';
 
 const Splash = () => {
-
   return (
-    <div>
-      <p>I'm the Splash!</p>
+    <div className="splash-page">
       { <LogIn /> }
     </div>
   )
