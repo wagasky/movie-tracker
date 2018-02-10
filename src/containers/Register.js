@@ -31,8 +31,11 @@ class Register extends Component {
     e.preventDefault();
     const results = await addNewUser({ name, email, password });
     const userResults = await userSignIn(email, password);
-    const user = await userResults.data
-    this.props.setUser(user)
+
+    // save for later - set current_user as recently registered user 
+    // to save user a step
+    // const user = await userResults.data
+    // this.props.setUser(user)
   }
 
   render() {
@@ -48,10 +51,6 @@ class Register extends Component {
     )
   }
 }
-
-// export const mapStateToProps = (store) => ({
-//   name: store.user.name
-// })
 
 export const mapDispatchToProps = (dispatch) => ({
   addNewUser: (user) => dispatch(addNewUser(user)),
