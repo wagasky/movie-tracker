@@ -13,7 +13,9 @@ class Movie extends Component {
     }
 
     return (
-      <div className="background" style={ backgroundImage }>
+      <div className="full">
+        <div className="background" style={ backgroundImage }>
+        </div>
         <div className="description" >
           <h3>Title: { this.props.title }</h3>
           <p>Release Date: { this.props.releaseDate }</p>
