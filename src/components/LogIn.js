@@ -3,7 +3,16 @@ import { redirect, withRouter } from 'react-router-dom';
 import { setUser } from '../actions/index';
 import * as actions from '../actions/index';
 import { userSignIn } from '../apiCall';
+<<<<<<< HEAD
 import { connect } from 'react-redux';
+<<<<<<< HEAD
+=======
+import { setUser } from '../actions/index';
+import * as actions from '../actions/index'
+=======
+import './LogIn.css'
+>>>>>>> Clean up adjust movie card size and format LogIn.js
+>>>>>>> Clean up adjust movie card size and format LogIn.js
 
 class LogIn extends Component {
   constructor(props) {
@@ -17,8 +26,7 @@ class LogIn extends Component {
 
   handleChange = (e) => {
     e.preventDefault();
-
-    const field = e.target.className;
+    const field = e.target.name;
     const value = e.target.value;
 
     this.setState({ [field]: value });
@@ -43,9 +51,17 @@ class LogIn extends Component {
 
     return (
       <div className="log-in-form">
-        <form onSubmit={this.loginSubmit}>
-          <input type="text" className="email" placeholder="email address" name="email" onChange={this.handleChange}/>
-          <input type="password" className="password" placeholder="password" name="password" onChange={this.handleChange}/>
+        <form onSubmit={ this.handleSubmit }>
+          <input type="text" 
+                 name="email" 
+                 placeholder="email address" 
+                 value={ this.state.email } 
+                 onChange={ this.handleChange }/>
+          <input type="password" 
+                 name="password" 
+                 placeholder="password" 
+                 value={ this.state.password } 
+                 onChange={ this.handleChange }/>
           <input type="submit" />
         </form>
       </div>
