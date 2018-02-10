@@ -17,7 +17,6 @@ class Nav extends Component {
           <nav> 
             <NavLink to='/' className='nav'>All Movies</NavLink>
             <NavLink to='/favorites' className='nav'>Favorites</NavLink>
-            <NavLink to='/login' className='nav'>Login</NavLink>
             <button onClick={this.logOutUser}>Logout</button>
           </nav>
         </div>
@@ -30,7 +29,6 @@ class Nav extends Component {
           <NavLink to='/' className='nav'>All Movies</NavLink>
           <NavLink to='/favorites' className='nav'>Favorites</NavLink>
           <NavLink to='/login' className='nav'>Login</NavLink>
-          {/*<NavLink to='/register' className='nav'>Register</NavLink>*/}
         </nav>
       </div>
     )
