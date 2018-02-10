@@ -55,11 +55,35 @@ export const addNewUser = async (user) => {
 
 };
 
-export const addFavorite = async () => {
-  const response = await fetch('api/users/favorites/new');
-  const { results } = await response.json();
+export const addFavorite = async (user_id, movie) => {
+  const payLoad = {
+        movie_id: movie.id,
+        user_id: user_id,
+        title: movie.title,
+        poster_path: movie.poster_path,
+        release_date: movie.release_date,
+        vote_average: movie.vote_average,
+        overview: movie.overview
+      }
 
-  return results;
+  try {  
+    const response = await fetch('api/users/favorites/new', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payLoad)
+    });
+  
+    const results = await response.json();
+debugger;
+    return results;
+
+  } 
+  catch (error) {
+    return false;
+  }
+
 };
 
 export const getFavorites = async (id) => {

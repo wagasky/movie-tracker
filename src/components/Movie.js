@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link, redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../actions/index';
+import { addFavorite } from '../apiCall.js';
 import icon from '../like.png';
 import './Movie.css';
 
@@ -25,18 +26,21 @@ class Movie extends Component {
           <img src={ icon }
                alt="favorite button" 
                className="favorite-icon" 
-               onClick={this.addFavorite} />
+               onClick={this.favoriteHandler} />
         </div>
       </div>
     )
   }
 
-  addFavorite = () => {
+  favoriteHandler = () => {
 
-    if(!this.props.current_user) {
-      this.props.history.push('/login')
+    if(this.props.current_user.id) {
+      const userId = this.props.current_user.id;
+      const movie = this.props;
+
+      addFavorite(userId, movie);
     } else {
-      console.log('add to favorites')
+      this.props.history.push('/login');
     }
   }
 
@@ -72,6 +76,7 @@ class Movie extends Component {
 export const mapStateToProps = (store) => ({
   movies: store.movies, 
   favorite: store.favorite,
+  current_user: store.current_user,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
