@@ -12,6 +12,7 @@ class Register extends Component {
       name: '',
       email: '',
       password: '',
+      errorMessage: null
     }
   }
 
@@ -29,8 +30,7 @@ class Register extends Component {
     const { name, email, password } = this.state
     const results = await addNewUser({ name, email, password });
     const userResults = await userSignIn(email, password);
-    const user = await userResults.data
-
+    const user = await userResults.data;
     this.autoLogIn(user)
   }
 
@@ -39,6 +39,7 @@ class Register extends Component {
 
     if (!user) {
       alert('That email is already registered. You can login instead');
+      // this.setState({errorMessage: "That email is already registered. Please try again."})
       this.props.history.push('/login');
     } else {
       const results = await userSignIn(email, password);
@@ -56,6 +57,7 @@ class Register extends Component {
           <input type="password" className="password" placeholder="password" name="password" onChange={this.handleChange}/>
           <button type="submit"
                   className="submit-button">Register</button>
+          <h3 className="login-error">{ this.state.errorMessage }</h3>
         </form>
       </div>
     )
