@@ -9,21 +9,6 @@ describe('FavoritesDisplay', () => {
   let wrapper;
 
   beforeEach(() => {
-    // const mockProps = {
-    //   userId: 2,
-    //   favorites: mockData
-    // }
-    // let mockLoadFavorites = jest.fn();
-    // let mockGetFavorites = jest.fn();
-    // let mockRenderFavorites = jest.fn();
-    // window.fetch = jest.fn();
-
-        // loadFavorite={ mockLoadFavorites }
-        //                getFavorites={ mockGetFavorites }
-        //                renderFavorites={ mockRenderFavorites }/>,
-
-      // { disableLifecycleMethods: true }
-    
     wrapper = shallow(<FavoritesDisplay />)
   });
 
@@ -43,3 +28,20 @@ describe('FavoritesDisplay', () => {
     expect(mapped.userId).toEqual(mockStore.current_user.id);
   });
 })
+
+
+    // const mockProps = {
+    //   userId: 2,
+    //   favorites: mockData
+    // }
+    // let mockLoadFavorites = jest.fn();
+    // let mockGetFavorites = jest.fn();
+    // let mockRenderFavorites = jest.fn();
+    // window.fetch = jest.fn();
+
+        // loadFavorite={ mockLoadFavorites }
+        //                getFavorites={ mockGetFavorites }
+        //                renderFavorites={ mockRenderFavorites }/>,
+
+      // { disableLifecycleMethods: true }
+    
