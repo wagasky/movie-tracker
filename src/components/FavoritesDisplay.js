@@ -17,6 +17,10 @@ class FavoritesDisplay extends Component {
     this.loadFavorites();
   }
 
+  componentDidUpdate() {
+    this.loadFavorites();
+  }
+
   loadFavorites = async () => {
     const userId = this.props.userId;
     const results = await getFavorites(userId);

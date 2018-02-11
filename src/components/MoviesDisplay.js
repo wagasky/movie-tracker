@@ -9,7 +9,7 @@ import './MovieDisplay.css'
 class movieDisplay extends Component {
   async componentDidMount() {
     const results = await getMovies();
-    this.props.loadMovies(results)
+    this.props.loadMovies(results);
   }
 
   renderedMovies = () => this.props.movies.map( ( movie ) => {
@@ -22,8 +22,7 @@ class movieDisplay extends Component {
              rating={ rating }
              overview={ movie.overview }
              releaseDate={ movie.release_date }
-             id={ movie.id }
-             />
+             id={ movie.id } />
     )
   })
 

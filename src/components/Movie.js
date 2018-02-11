@@ -34,11 +34,13 @@ class Movie extends Component {
 
   checkFavorite = async (userId, movie) => {
     const { data } = await getFavorites(userId);
-    const match = data.find( favorite => movie.id === favorite.movie_id );
-    debugger;
+    const match = data.find( favorite => {
+      return (movie.id === favorite.movie_id) ||
+             (movie.id === favorite.id)
+    })
 
     if (match) {
-      const movieId = movie.id;
+      const movieId = match.movie_id;
 
       return deleteFavorites(userId, movieId)
     } else {
@@ -50,7 +52,7 @@ class Movie extends Component {
     if(this.props.current_user.id) {
       const userId = this.props.current_user.id;
       const movie = this.props;
-      console.log(movie)
+
       this.checkFavorite(userId, movie);
     } else {
       this.props.history.push('/login');
@@ -79,19 +81,6 @@ export const mapDispatchToProps = (dispatch) => ({
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
 
 
-
-
-
-
-  // handleFavorite = () => {   
-  //   this.props.toggleFavorite(this.props.id);
-  //   this.addToFavoritesArray();
-  // }
-
-  // addToFavoritesArray = () => {
-  //   const movies = this.props.movies;
-  //   const favorites = movies.filter( movie => movie.favorite === true);
-  // }
 
   // for displaying individual movies:
   // const displayMovies = movies.map((movie, i) => {

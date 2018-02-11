@@ -34,3 +34,15 @@ form {
 p{
   color: white;
 }
+
+.login-error {
+  color: red;
+  font-size: .75em;
+  padding: 0 0 10px;
+}
+
+.acct-create {
+  color: red;
+  font-size: .75em;
+  padding: 0 0 10px;
+}
