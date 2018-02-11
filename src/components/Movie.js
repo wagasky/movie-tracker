@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Link, redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../actions/index';
-import { addFavorite } from '../apiCall.js';
+import { addFavorite, getFavorites, deleteFavorites } from '../apiCall.js';
 import icon from '../like.png';
 import './Movie.css';
 
@@ -26,42 +26,35 @@ class Movie extends Component {
           <img src={ icon }
                alt="favorite button" 
                className="favorite-icon" 
-               onClick={this.favoriteHandler} />
+               onClick={ this.favoriteHandler } />
         </div>
       </div>
     )
   }
 
-  favoriteHandler = () => {
+  checkFavorite = async (userId, movie) => {
+    const { data } = await getFavorites(userId);
+    const match = data.find( favorite => movie.id === favorite.movie_id )
+    debugger;
 
+    if (match) {
+      const movieId = movie.id;
+
+      return deleteFavorites(userId, movieId)
+    } else {
+      return addFavorite(userId, movie)
+    }
+  }
+
+  favoriteHandler = () => {
     if(this.props.current_user.id) {
       const userId = this.props.current_user.id;
       const movie = this.props;
-      addFavorite(userId, movie);
+      this.checkFavorite(userId, movie);
     } else {
       this.props.history.push('/login');
     }
   }
-
-  handleFavorite = () => {   
-    this.props.toggleFavorite(this.props.id);
-    this.addToFavoritesArray();
-  }
-
-  addToFavoritesArray = () => {
-    const movies = this.props.movies;
-    const favorites = movies.filter( movie => movie.favorite === true);
-  }
-
-  // for displaying individual movies:
-  // const displayMovies = movies.map((movie, i) => {
-  //   return (
-  //     <Link to={`/movies/${movie.id}`} >
-  //       <img src={movie.image} key={i} />
-  //     </Link>
-  //   )
-  // })
-
 
   render() {
     return (
@@ -83,3 +76,27 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
+
+
+
+
+
+
+  // handleFavorite = () => {   
+  //   this.props.toggleFavorite(this.props.id);
+  //   this.addToFavoritesArray();
+  // }
+
+  // addToFavoritesArray = () => {
+  //   const movies = this.props.movies;
+  //   const favorites = movies.filter( movie => movie.favorite === true);
+  // }
+
+  // for displaying individual movies:
+  // const displayMovies = movies.map((movie, i) => {
+  //   return (
+  //     <Link to={`/movies/${movie.id}`} >
+  //       <img src={movie.image} key={i} />
+  //     </Link>
+  //   )
+  // })
