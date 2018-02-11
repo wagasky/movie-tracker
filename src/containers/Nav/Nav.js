@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logOutUser } from '../actions/index';
+import { logOutUser } from '../../actions/index';
 import { Link, NavLink } from 'react-router-dom';
 
 class Nav extends Component {

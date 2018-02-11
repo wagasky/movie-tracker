@@ -1,4 +1,4 @@
-import mockData from './mockData';
+import mockData from '../mockData';
 import apiKey from './apiKey';
 import { getMovies } from './apiCall';
 

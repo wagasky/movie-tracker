@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { redirect, withRouter } from 'react-router-dom';
-import { setUser } from '../actions/index';
-import * as actions from '../actions/index';
-import { userSignIn } from '../apiCall';
+import { setUser } from '../../actions/index';
+import * as actions from '../../actions/index';
+import { userSignIn } from '../../helper/apiCall';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './LogIn.css'
