@@ -27,6 +27,7 @@ class Register extends Component {
 
   registerSubmit = async (e) => {
     e.preventDefault();
+    
     const { name, email, password } = this.state
     const results = await addNewUser({ name, email, password });
     const userResults = await userSignIn(email, password);
