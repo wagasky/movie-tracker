@@ -4,12 +4,12 @@ import { getMovies, getAllUsers } from '../../helper/apiCall';
 import { connect } from 'react-redux';
 import { Route, NavLink, Switch, Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import LogIn from '../LogIn/LogIn';
-import Register from '../Register/Register';
+import LogIn from '../../containers/LogIn/LogIn';
+import Register from '../../containers/Register/Register';
 import Splash from '../../components/Splash/Splash';
-import MoviesDisplay from '../MoviesDisplay/MoviesDisplay';
-import FavoritesDisplay from '../FavoritesDisplay/FavoritesDisplay';
-import Nav from '../Nav/Nav';
+import MoviesDisplay from '../../containers/MoviesDisplay/MoviesDisplay';
+import FavoritesDisplay from '../../containers/FavoritesDisplay/FavoritesDisplay';
+import Nav from '../../containers/Nav/Nav';
 
 import './App.css';
 
