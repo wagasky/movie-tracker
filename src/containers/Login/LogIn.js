@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { redirect, withRouter } from 'react-router-dom';
-import { setUser } from '../actions/index';
-import * as actions from '../actions/index';
-import { userSignIn } from '../apiCall';
+import { setUser } from '../../actions/index';
+import * as actions from '../../actions/index';
+import { userSignIn } from '../../helper/apiCall';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './LogIn.css'
@@ -13,7 +13,8 @@ class LogIn extends Component {
     
     this.state ={
       email: '',
-      password: ''
+      password: '',
+      errorMessage: null
     }
   }
 
@@ -33,7 +34,7 @@ class LogIn extends Component {
     const user = await results.data;
 
     if (!results) {
-      alert('Oops! The email and password do not match');
+      this.setState({ errorMessage: 'Your login is invalid. Please try again.'})
     } else {
       this.props.setUser(user);
       this.props.history.push('/')
@@ -56,6 +57,7 @@ class LogIn extends Component {
                  onChange={ this.handleChange }/>
           <button type="submit" 
                   className="submit-button">Log In</button>
+          <h3 className="login-error">{ this.state.errorMessage }</h3>   
           <p>Don't have an account? <Link to="/register">Sign-up now</Link></p>
         </form>
       </div>

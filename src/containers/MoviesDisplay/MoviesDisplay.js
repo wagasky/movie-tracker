@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { loadMovies, toggleFavorite, showFavorites } from '../actions/index.js';
+import { loadMovies, toggleFavorite, showFavorites } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { getMovies } from '../apiCall';
-import Movie from './Movie';
-import './MovieDisplay.css'
+import { getMovies } from '../../helper/apiCall';
+import Movie from '../Movie/Movie';
+import './MoviesDisplay.css'
 
-class movieDisplay extends Component {
+class moviesDisplay extends Component {
   async componentDidMount() {
     const results = await getMovies();
     this.props.loadMovies(results);
@@ -44,4 +44,4 @@ export const mapDispatchToProps = (dispatch) => ({
   showFavorites: filter => dispatch(showFavorites(filter))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(movieDisplay);
+export default connect(mapStateToProps, mapDispatchToProps)(moviesDisplay);

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import LogIn from './LogIn';
-import Register from '../containers/Register'
+import LogIn from '../../containers/LogIn/LogIn';
+import Register from '../../containers/Register/Register'
 import './Splash.css';
 
 class Splash extends Component {
