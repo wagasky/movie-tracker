@@ -6,7 +6,7 @@ import { addFavorite, getFavorites, deleteFavorites } from '../../helper/apiCall
 import icon from '../../assets/like.png';
 import './Movie.css';
 
-class Movie extends Component {
+export class Movie extends Component {
   renderMovie = () => {
     const posterPath = this.props.poster; 
     const url = `https://image.tmdb.org/t/p/w500${ posterPath }`
@@ -70,15 +70,10 @@ class Movie extends Component {
 
 export const mapStateToProps = (store) => ({
   movies: store.movies, 
-  favorite: store.favorite,
   current_user: store.current_user,
 })
 
-export const mapDispatchToProps = (dispatch) => ({
-  toggleFavorite: movieId => dispatch(toggleFavorite(movieId))
-})
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
+export default withRouter(connect(mapStateToProps, null)(Movie));
 
 
 
