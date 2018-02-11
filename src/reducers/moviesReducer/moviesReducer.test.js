@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import moviesReducer from './moviesReducer';
-import * as actions from '../actions';
-import mockData from '../mockData';
+import * as actions from '../../actions';
+import mockData from '../../mockData';
 
 describe('moviesReducer', () => {
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { redirect, withRouter, Link } from 'react-router-dom';
-import { setUser } from '../actions/index';
-import { userSignIn, addNewUser } from '../apiCall';
+import { redirect, withRouter } from 'react-router-dom';
+import { setUser } from '../../actions/index';
+import { userSignIn, addNewUser } from '../../helper/apiCall'
 
 class Register extends Component {
   constructor(props) {
