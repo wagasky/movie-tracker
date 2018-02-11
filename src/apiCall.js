@@ -60,9 +60,9 @@ export const addFavorite = async (user_id, movie) => {
         movie_id: movie.id,
         user_id: user_id,
         title: movie.title,
-        poster_path: movie.poster_path,
-        release_date: movie.release_date,
-        vote_average: movie.vote_average,
+        poster_path: movie.poster,
+        release_date: movie.releaseDate,
+        vote_average: movie.rating,
         overview: movie.overview
       }
 

@@ -37,7 +37,6 @@ class Movie extends Component {
     if(this.props.current_user.id) {
       const userId = this.props.current_user.id;
       const movie = this.props;
-
       addFavorite(userId, movie);
     } else {
       this.props.history.push('/login');
