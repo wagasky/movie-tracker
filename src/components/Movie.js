@@ -34,11 +34,15 @@ class Movie extends Component {
 
   checkFavorite = async (userId, movie) => {
     const { data } = await getFavorites(userId);
-    const match = data.find( favorite => movie.id === favorite.movie_id );
+    const match = data.find( favorite => {
+      return (movie.id === favorite.movie_id) ||
+             (movie.id === favorite.id)
+    })
+
     debugger;
 
     if (match) {
-      const movieId = movie.id;
+      const movieId = match.movie_id;
 
       return deleteFavorites(userId, movieId)
     } else {
