@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getFavorites } from '../../helper/apiCall';
 import Movie from '../Movie/Movie';
 
-class FavoritesDisplay extends Component {
+export class FavoritesDisplay extends Component {
   constructor() {
     super();
 
@@ -28,7 +28,6 @@ class FavoritesDisplay extends Component {
 
     this.setState({ favorites })
   }
-
 
   renderFavorites = () => {
     return this.state.favorites.map( movie => {
