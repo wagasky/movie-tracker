@@ -4,7 +4,7 @@ import { redirect, withRouter, Link } from 'react-router-dom';
 import { setUser } from '../../actions/index';
 import { userSignIn, addNewUser } from '../../helper/apiCall'
 
-class Register extends Component {
+export class Register extends Component {
   constructor(props) {
     super(props);
     
@@ -61,7 +61,6 @@ class Register extends Component {
     )
   }
 }
-
 
 export const mapDispatchToProps = (dispatch) => ({
   addNewUser: (user) => dispatch(addNewUser(user)),

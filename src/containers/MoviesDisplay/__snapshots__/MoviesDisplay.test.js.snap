@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesDisplay should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MoviesDisplay
+    movies={
+      Array [
+        Object {
+          "adult": false,
+          "backdrop_path": "/iuyE1qy9HoTsMg0DHB1KJxM94DJ.jpg",
+          "favorite": false,
+          "genre_ids": Array [
+            18,
+            10749,
+          ],
+          "id": 337167,
+          "original_language": "en",
+          "original_title": "Fifty Shades Freed",
+          "overview": "The third installment of the Fifty Shades Trilogy.",
+          "popularity": 45.670468,
+          "poster_path": "/iUDFe6B6bFPOAE13uoqH4eEU1cF.jpg",
+          "release_date": "2018-02-07",
+          "title": "Fifty Shades Freed",
+          "video": false,
+          "vote_average": 6.4,
+          "vote_count": 20,
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <withRouter(Connect(Movie))
+          id={337167}
+          overview="The third installment of the Fifty Shades Trilogy."
+          poster="/iUDFe6B6bFPOAE13uoqH4eEU1cF.jpg"
+          rating={46}
+          releaseDate="2018-02-07"
+          title="Fifty Shades Freed"
+        />,
+      ],
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "337167",
+        "nodeType": "function",
+        "props": Object {
+          "id": 337167,
+          "overview": "The third installment of the Fifty Shades Trilogy.",
+          "poster": "/iUDFe6B6bFPOAE13uoqH4eEU1cF.jpg",
+          "rating": 46,
+          "releaseDate": "2018-02-07",
+          "title": "Fifty Shades Freed",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <withRouter(Connect(Movie))
+            id={337167}
+            overview="The third installment of the Fifty Shades Trilogy."
+            poster="/iUDFe6B6bFPOAE13uoqH4eEU1cF.jpg"
+            rating={46}
+            releaseDate="2018-02-07"
+            title="Fifty Shades Freed"
+          />,
+        ],
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "337167",
+          "nodeType": "function",
+          "props": Object {
+            "id": 337167,
+            "overview": "The third installment of the Fifty Shades Trilogy.",
+            "poster": "/iUDFe6B6bFPOAE13uoqH4eEU1cF.jpg",
+            "rating": 46,
+            "releaseDate": "2018-02-07",
+            "title": "Fifty Shades Freed",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

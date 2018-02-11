@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './LogIn.css'
 
-class LogIn extends Component {
+export class LogIn extends Component {
   constructor(props) {
     super(props);
     

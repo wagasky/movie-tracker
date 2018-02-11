@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { logOutUser } from '../../actions/index';
 import { Link, NavLink } from 'react-router-dom';
 
-class Nav extends Component {
-
+export class Nav extends Component {
   logOutUser = (user) => {
     this.props.logOutUser(user);
   }

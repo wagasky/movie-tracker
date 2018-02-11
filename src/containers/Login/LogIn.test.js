@@ -4,11 +4,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { LogIn, mapDispatchToProps } from './LogIn';
 
-describe.skip('LogIn', () => {
+describe('LogIn', () => {
   let wrapper;
 
   beforeEach(() => {
-    
     wrapper = shallow(<LogIn />)
   })
 
@@ -18,25 +17,22 @@ describe.skip('LogIn', () => {
       password: '',
       errorMessage: null
     }
-    console.log(wrapper.state())
+    
+    expect(wrapper.state()).toEqual(expected)
   });
 
-  it('should fetch user credentials from database', () => {
-    const userCredentials = {
-      "email": "tman2272@aol.com",
-      "password": "password"
-    }
-
-    window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve({
-        status: 200,
-        json: () => Promise.resolve(userCredentials)
-      })
-    })
-  })
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should call dispatch method when using function from mapDispatchToProps', () => {
+    const mockDispatch = jest.fn();
+    const mapped = mapDispatchToProps(mockDispatch);
+
+    mapped.setUser();
+
+    expect(mockDispatch).toHaveBeenCalled();
   });
 
 })

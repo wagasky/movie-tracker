@@ -2,16 +2,36 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import MovieDisplay from './MovieDisplay';
+import { MoviesDisplay, mapStateToProps, mapDispatchToProps } from './MoviesDisplay';
+import { mockData } from '../../mockData'
 
-describe('MovieDisplay', () => {
+describe('MoviesDisplay', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<MovieDisplay />);
-  })
+    wrapper = shallow(<MoviesDisplay movies={ mockData }/>);
+  });
 
-  it.skip('should match snapshot',() => {
+  it('should match snapshot',() => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
+
+  it('should map to the store correctly', () => {
+    const mockStore = {
+      movies: mockData
+    }
+    const mapped = mapStateToProps(mockStore)
+
+    expect(mapped).toEqual(mockStore)
+  });
+
+  it('should call the dispatch function when using a function from mapDispatchToProps', () => {
+    const mockDispatch = jest.fn();
+    const mapped = mapDispatchToProps(mockDispatch);
+
+    mapped.loadMovies();
+    mapped.showFavorites();
+
+    expect(mockDispatch).toHaveBeenCalled();
+  });
 })
