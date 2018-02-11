@@ -10,11 +10,11 @@ describe('Movie', () => {
 
   beforeEach(() => {
     wrapper = shallow(<Movie />);
-  })
+  });
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
   it('should map to the store correctly', () => {
     const mockCurrentUser = {
@@ -49,5 +49,8 @@ describe('Movie', () => {
     expect(mockCheckFavorite).toHaveBeenCalled();
   });
 
+  it.skip('should call getFavorites when checkFavorite is called', () => {
+    // also check that either deleteFavorites or addFavorite is called
+  });
 
 })

@@ -34,7 +34,9 @@ describe('FavoritesDisplay', () => {
   it('should map to the store correctly', () => {
     const mockId = 0;
     const mockStore = {
-      current_user: { id: mockId }
+      current_user: { 
+        id: mockId 
+      }
     }
     const mapped = mapStateToProps(mockStore)
 

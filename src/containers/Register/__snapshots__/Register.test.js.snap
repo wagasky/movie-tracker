@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LogIn should match snapshot 1`] = `
+exports[`Register should match snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <LogIn />,
+  Symbol(enzyme.__unrendered__): <Register />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -20,38 +20,45 @@ ShallowWrapper {
       "children": <form
         onSubmit={[Function]}
       >
+        <h3
+          className="acct-create"
+        />
         <input
+          className="name"
+          name="email"
+          onChange={[Function]}
+          placeholder="Your Name"
+          type="text"
+        />
+        <input
+          className="email"
           name="email"
           onChange={[Function]}
           placeholder="email address"
           type="text"
-          value=""
         />
         <input
+          className="password"
           name="password"
           onChange={[Function]}
           placeholder="password"
           type="password"
-          value=""
         />
         <button
           className="submit-button"
           type="submit"
         >
-          Log In
+          Register
         </button>
         <h3
           className="login-error"
         />
-        <p>
-          Don't have an account? 
-          <Link
-            replace={false}
-            to="/register"
-          >
-            Sign-up now
-          </Link>
-        </p>
+        <Link
+          replace={false}
+          to="/login"
+        >
+          Login
+        </Link>
       </form>,
       "className": "log-in-form",
     },
@@ -62,38 +69,45 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <h3
+            className="acct-create"
+          />,
           <input
+            className="name"
+            name="email"
+            onChange={[Function]}
+            placeholder="Your Name"
+            type="text"
+          />,
+          <input
+            className="email"
             name="email"
             onChange={[Function]}
             placeholder="email address"
             type="text"
-            value=""
           />,
           <input
+            className="password"
             name="password"
             onChange={[Function]}
             placeholder="password"
             type="password"
-            value=""
           />,
           <button
             className="submit-button"
             type="submit"
           >
-            Log In
+            Register
           </button>,
           <h3
             className="login-error"
           />,
-          <p>
-            Don't have an account? 
-            <Link
-              replace={false}
-              to="/register"
-            >
-              Sign-up now
-            </Link>
-          </p>,
+          <Link
+            replace={false}
+            to="/login"
+          >
+            Login
+          </Link>,
         ],
         "onSubmit": [Function],
       },
@@ -104,11 +118,38 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": null,
+            "className": "acct-create",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "name",
+            "name": "email",
+            "onChange": [Function],
+            "placeholder": "Your Name",
+            "type": "text",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "email",
             "name": "email",
             "onChange": [Function],
             "placeholder": "email address",
             "type": "text",
-            "value": "",
           },
           "ref": null,
           "rendered": null,
@@ -119,11 +160,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "className": "password",
             "name": "password",
             "onChange": [Function],
             "placeholder": "password",
             "type": "password",
-            "value": "",
           },
           "ref": null,
           "rendered": null,
@@ -134,12 +175,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Log In",
+            "children": "Register",
             "className": "submit-button",
             "type": "submit",
           },
           "ref": null,
-          "rendered": "Log In",
+          "rendered": "Register",
           "type": "button",
         },
         Object {
@@ -157,36 +198,15 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
-            "children": Array [
-              "Don't have an account? ",
-              <Link
-                replace={false}
-                to="/register"
-              >
-                Sign-up now
-              </Link>,
-            ],
+            "children": "Login",
+            "replace": false,
+            "to": "/login",
           },
           "ref": null,
-          "rendered": Array [
-            "Don't have an account? ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "children": "Sign-up now",
-                "replace": false,
-                "to": "/register",
-              },
-              "ref": null,
-              "rendered": "Sign-up now",
-              "type": [Function],
-            },
-          ],
-          "type": "p",
+          "rendered": "Login",
+          "type": [Function],
         },
       ],
       "type": "form",
@@ -202,38 +222,45 @@ ShallowWrapper {
         "children": <form
           onSubmit={[Function]}
         >
+          <h3
+            className="acct-create"
+          />
           <input
+            className="name"
+            name="email"
+            onChange={[Function]}
+            placeholder="Your Name"
+            type="text"
+          />
+          <input
+            className="email"
             name="email"
             onChange={[Function]}
             placeholder="email address"
             type="text"
-            value=""
           />
           <input
+            className="password"
             name="password"
             onChange={[Function]}
             placeholder="password"
             type="password"
-            value=""
           />
           <button
             className="submit-button"
             type="submit"
           >
-            Log In
+            Register
           </button>
           <h3
             className="login-error"
           />
-          <p>
-            Don't have an account? 
-            <Link
-              replace={false}
-              to="/register"
-            >
-              Sign-up now
-            </Link>
-          </p>
+          <Link
+            replace={false}
+            to="/login"
+          >
+            Login
+          </Link>
         </form>,
         "className": "log-in-form",
       },
@@ -244,38 +271,45 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
+            <h3
+              className="acct-create"
+            />,
             <input
+              className="name"
+              name="email"
+              onChange={[Function]}
+              placeholder="Your Name"
+              type="text"
+            />,
+            <input
+              className="email"
               name="email"
               onChange={[Function]}
               placeholder="email address"
               type="text"
-              value=""
             />,
             <input
+              className="password"
               name="password"
               onChange={[Function]}
               placeholder="password"
               type="password"
-              value=""
             />,
             <button
               className="submit-button"
               type="submit"
             >
-              Log In
+              Register
             </button>,
             <h3
               className="login-error"
             />,
-            <p>
-              Don't have an account? 
-              <Link
-                replace={false}
-                to="/register"
-              >
-                Sign-up now
-              </Link>
-            </p>,
+            <Link
+              replace={false}
+              to="/login"
+            >
+              Login
+            </Link>,
           ],
           "onSubmit": [Function],
         },
@@ -286,11 +320,38 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "children": null,
+              "className": "acct-create",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "name",
+              "name": "email",
+              "onChange": [Function],
+              "placeholder": "Your Name",
+              "type": "text",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "email",
               "name": "email",
               "onChange": [Function],
               "placeholder": "email address",
               "type": "text",
-              "value": "",
             },
             "ref": null,
             "rendered": null,
@@ -301,11 +362,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "className": "password",
               "name": "password",
               "onChange": [Function],
               "placeholder": "password",
               "type": "password",
-              "value": "",
             },
             "ref": null,
             "rendered": null,
@@ -316,12 +377,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Log In",
+              "children": "Register",
               "className": "submit-button",
               "type": "submit",
             },
             "ref": null,
-            "rendered": "Log In",
+            "rendered": "Register",
             "type": "button",
           },
           Object {
@@ -339,36 +400,15 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "children": Array [
-                "Don't have an account? ",
-                <Link
-                  replace={false}
-                  to="/register"
-                >
-                  Sign-up now
-                </Link>,
-              ],
+              "children": "Login",
+              "replace": false,
+              "to": "/login",
             },
             "ref": null,
-            "rendered": Array [
-              "Don't have an account? ",
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "children": "Sign-up now",
-                  "replace": false,
-                  "to": "/register",
-                },
-                "ref": null,
-                "rendered": "Sign-up now",
-                "type": [Function],
-              },
-            ],
-            "type": "p",
+            "rendered": "Login",
+            "type": [Function],
           },
         ],
         "type": "form",
