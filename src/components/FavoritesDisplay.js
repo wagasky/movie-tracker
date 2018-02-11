@@ -14,7 +14,7 @@ class FavoritesDisplay extends Component {
   }
 
   async componentDidMount() {
-    // const favorites = await this.getFavorites();
+    // const favorites = await this.getFavorites(userId);
     // this.setState({ favorites })
   }
 

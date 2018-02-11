@@ -76,26 +76,38 @@ export const addFavorite = async (user_id, movie) => {
     });
   
     const results = await response.json();
-debugger;
-    return results;
 
-  } 
-  catch (error) {
+    return results;
+  } catch (error) {
     return false;
   }
 
 };
 
 export const getFavorites = async (id) => {
-  const response = await fetch(`api/users/${id}/favorites`);
-  const results = await response.json();
+  try {
+    const response = await fetch(`api/users/${id}/favorites`);
+    const results = await response.json();
 
-  return results;
+    return results;
+  } catch (error) {
+    return false;
+  }
 };
 
 export const deleteFavorites = async (userId, movieId) => {
-  const response = await fetch(`api/users/${userId}/favorites/${movieId}`);
-  const { results } = await response.json();
+  try {
+    const response = await fetch(`api/users/${userId}/favorites/${movieId}`, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      user_id: userId,
+      movie_id: movieId
+    })
+  });
+  const results = await response.json();
 
   return results;
+  } catch (error) {
+    return false
+  }
 };
