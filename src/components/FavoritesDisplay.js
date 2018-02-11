@@ -13,35 +13,42 @@ class FavoritesDisplay extends Component {
     }
   }
 
-  async componentDidMount() {
-    // const favorites = await this.getFavorites(userId);
-    // this.setState({ favorites })
+  componentDidMount() {
+    // this.loadFavorites();
   }
 
-  getFavorites = async () => {
+  loadFavorites = async () => {
     const userId = this.props.userId;
     const results = await getFavorites(userId);
     const favorites = await results.data;
 
     return favorites;
+    // this.renderFavorites(favorites);
   }
 
-// cannot use async/await on a func that goes inside render
-// pull favorites on page load an set in state? 
-// pull favorites array from state to render?
 
-  renderFaves = () => {
-    const favorites = this.getFavorites();
-    // debugger
-    return !favorites ? <p>No Favorites</p> : <p>Favorites!</p>
+  renderFavorites = () => {
+    const favorites = this.loadFavorites();
+    return favorites.map( movie => {
+      return (
+        <Movie key={ movie.id }
+               poster={ movie.poster_path }
+               title={ movie.title }
+               rating={ movie.popularity }
+               overview={ movie.overview }
+               releaseDate={ movie.release_date }
+               id={ movie.id } />
+      ) 
+    })
+    // return !favorites ? <p>No Favorites</p> : <p>Favorites!</p>
   }
 
   render() {
     return (
       <div>
         { 
-          // this.props.userId &&
-          // this.renderFaves() 
+          this.props.userId &&
+          this.renderFavorites() 
         }
       </div>
     );
