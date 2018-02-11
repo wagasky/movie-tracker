@@ -14,7 +14,7 @@ describe('Register', () => {
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
   it('should call dispatch method when using a function in mapDispatchToProps', () => {
     const mockDispatch = jest.fn();
@@ -24,15 +24,37 @@ describe('Register', () => {
     mapped.setUser();
 
     expect(mockDispatch).toHaveBeenCalled();
-  })
+  });
 
-  it.skip('should call registerSubmit when the form is submitted', () => {
-    const mockRegisterSubmit = jest.fn();
+  it('should set state if registration is successful', async () => {
+    wrapper = shallow(<Register />)
     const mockEvent = { preventDefault: jest.fn() };
-    wrapper = shallow(<Register registerSubmit={ mockRegisterSubmit } />)
   
-    wrapper.instance().registerSubmit(mockEvent);
+    window.fetch = jest.fn().mockImplementationOnce(() => Promise.resolve({
+      json: () => Promise.resolve({
+        status: 'success'
+      })
+    }))
 
-    expect(mockRegisterSubmit).toHaveBeenCalled();
-  })
+    await wrapper.instance().registerSubmit(mockEvent);
+    wrapper.update()
+
+    expect(wrapper.state('newAcctMessage')).toEqual("Registration successful. Please login.");
+  });
+
+  it('should set state if registration is not successful', async () => {
+    wrapper = shallow(<Register />)
+    const mockEvent = { preventDefault: jest.fn() };
+  
+    window.fetch = jest.fn().mockImplementationOnce(() => Promise.resolve({
+      json: () => Promise.resolve({
+        status: 'failure'
+      })
+    }))
+
+    await wrapper.instance().registerSubmit(mockEvent);
+    wrapper.update()
+
+    expect(wrapper.state('errorMessage')).toEqual("That email is already registered. Please try again or login.");
+  });
 })

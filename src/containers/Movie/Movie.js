@@ -33,18 +33,23 @@ export class Movie extends Component {
   }
 
   checkFavorite = async (userId, movie) => {
+    // console.log('check')
     const { data } = await getFavorites(userId);
     const match = data.find( favorite => {
       return (movie.id === favorite.movie_id) ||
              (movie.id === favorite.id)
     })
 
+
     if (match) {
       const movieId = match.movie_id;
 
       return deleteFavorites(userId, movieId)
     } else {
+      console.log('match')
+
       return addFavorite(userId, movie)
+
     }
   }
 

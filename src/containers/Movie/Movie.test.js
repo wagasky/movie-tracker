@@ -33,7 +33,7 @@ describe('Movie', () => {
     expect(mapped).toEqual(mockStore)
   });
 
-  it.skip('should call checkFavorite when favoriteHandler is called', () => {
+  it('should call checkFavorite when favoriteHandler is called', () => {
     const mockCheckFavorite = jest.fn();
     const mockCurrentUser = {
       "id": 1,
@@ -41,16 +41,16 @@ describe('Movie', () => {
       "password": "password",
       "email": "tman2272@aol.com"
     }
-    const wrapper = shallow(<Movie current_user={ mockCurrentUser }
-                                   checkFavorite={ mockCheckFavorite } /> );
+    const wrapper = shallow(<Movie current_user={ mockCurrentUser } /> );
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve({
+        data: mockData
+      })
+    }))
 
     wrapper.instance().favoriteHandler();
 
-    expect(mockCheckFavorite).toHaveBeenCalled();
-  });
-
-  it.skip('should call getFavorites when checkFavorite is called', () => {
-    // also check that either deleteFavorites or addFavorite is called
+    expect(window.fetch).toHaveBeenCalled();
   });
 
 })
