@@ -39,8 +39,6 @@ class Movie extends Component {
              (movie.id === favorite.id)
     })
 
-    debugger;
-
     if (match) {
       const movieId = match.movie_id;
 
@@ -54,7 +52,7 @@ class Movie extends Component {
     if(this.props.current_user.id) {
       const userId = this.props.current_user.id;
       const movie = this.props;
-      console.log(movie)
+
       this.checkFavorite(userId, movie);
     } else {
       this.props.history.push('/login');
@@ -83,19 +81,6 @@ export const mapDispatchToProps = (dispatch) => ({
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Movie));
 
 
-
-
-
-
-  // handleFavorite = () => {   
-  //   this.props.toggleFavorite(this.props.id);
-  //   this.addToFavoritesArray();
-  // }
-
-  // addToFavoritesArray = () => {
-  //   const movies = this.props.movies;
-  //   const favorites = movies.filter( movie => movie.favorite === true);
-  // }
 
   // for displaying individual movies:
   // const displayMovies = movies.map((movie, i) => {
