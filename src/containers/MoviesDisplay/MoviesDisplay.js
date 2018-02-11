@@ -6,7 +6,7 @@ import { getMovies } from '../../helper/apiCall';
 import Movie from '../Movie/Movie';
 import './MoviesDisplay.css'
 
-class moviesDisplay extends Component {
+export class MoviesDisplay extends Component {
   async componentDidMount() {
     const results = await getMovies();
     this.props.loadMovies(results);
@@ -44,4 +44,4 @@ export const mapDispatchToProps = (dispatch) => ({
   showFavorites: filter => dispatch(showFavorites(filter))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(moviesDisplay);
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesDisplay);
