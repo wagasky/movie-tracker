@@ -34,7 +34,8 @@ class Movie extends Component {
 
   checkFavorite = async (userId, movie) => {
     const { data } = await getFavorites(userId);
-    const match = data.find( favorite => movie.id === favorite.movie_id )
+    const match = data.find( favorite => movie.id === favorite.movie_id );
+    debugger;
 
     if (match) {
       const movieId = movie.id;
@@ -49,6 +50,7 @@ class Movie extends Component {
     if(this.props.current_user.id) {
       const userId = this.props.current_user.id;
       const movie = this.props;
+      console.log(movie)
       this.checkFavorite(userId, movie);
     } else {
       this.props.history.push('/login');

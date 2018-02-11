@@ -14,7 +14,7 @@ class FavoritesDisplay extends Component {
   }
 
   componentDidMount() {
-    // this.loadFavorites();
+    this.loadFavorites();
   }
 
   loadFavorites = async () => {
@@ -22,14 +22,12 @@ class FavoritesDisplay extends Component {
     const results = await getFavorites(userId);
     const favorites = await results.data;
 
-    return favorites;
-    // this.renderFavorites(favorites);
+    this.setState({ favorites })
   }
 
 
   renderFavorites = () => {
-    const favorites = this.loadFavorites();
-    return favorites.map( movie => {
+    return this.state.favorites.map( movie => {
       return (
         <Movie key={ movie.id }
                poster={ movie.poster_path }
@@ -40,7 +38,6 @@ class FavoritesDisplay extends Component {
                id={ movie.id } />
       ) 
     })
-    // return !favorites ? <p>No Favorites</p> : <p>Favorites!</p>
   }
 
   render() {
