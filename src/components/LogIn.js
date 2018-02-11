@@ -15,6 +15,7 @@ class LogIn extends Component {
     this.state ={
       email: '',
       password: '',
+      errorMessage: null
     }
   }
 
@@ -34,7 +35,7 @@ class LogIn extends Component {
     const user = await results.data;
 
     if (!results) {
-      alert('Oops! The email and password do not match');
+      this.setState({ errorMessage: 'Your login is invalid. Please try again.'})
     } else {
       this.props.setUser(user);
       this.props.history.push('/')
@@ -57,6 +58,7 @@ class LogIn extends Component {
                  onChange={ this.handleChange }/>
           <button type="submit" 
                   className="submit-button">Log In</button>
+          <h3 className="login-error">{ this.state.errorMessage }</h3>   
           <p>Don't have an account? <Link to="/register">Sign-up now</Link></p>
         </form>
       </div>
