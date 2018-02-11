@@ -35,7 +35,6 @@ class Movie extends Component {
   checkFavorite = async (userId, movie) => {
     const { data } = await getFavorites(userId);
     const match = data.find( favorite => movie.id === favorite.movie_id )
-    debugger;
 
     if (match) {
       const movieId = movie.id;
