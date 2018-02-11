@@ -3,7 +3,6 @@ import { redirect, withRouter } from 'react-router-dom';
 import { setUser } from '../actions/index';
 import * as actions from '../actions/index';
 import { userSignIn } from '../apiCall';
-import './LogIn.css'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './LogIn.css'
@@ -14,7 +13,7 @@ class LogIn extends Component {
     
     this.state ={
       email: '',
-      password: '',
+      password: ''
     }
   }
 
