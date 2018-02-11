@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import LogIn from '../../containers/LogIn/LogIn';
 import Register from '../../containers/Register/Register'
 import './Splash.css';
@@ -14,7 +14,7 @@ class Splash extends Component {
 
     return (
       <div className="splash-page">
-       {this.renderComponent()}
+       { this.renderComponent() }
       </div>
     )
   }

@@ -2,17 +2,23 @@
 
 import React from 'react';
 import { shallow } from 'enzyme';
-import LogIn from './LogIn';
+import { LogIn, mapDispatchToProps } from './LogIn';
 
-describe('LogIn', () => {
+describe.skip('LogIn', () => {
   let wrapper;
 
-  beforeEach((), => {
+  beforeEach(() => {
+    
     wrapper = shallow(<LogIn />)
   })
 
-  it('should set state of email and password', () => {
-
+  it('should have a default state', () => {
+    const expected = {
+      email: '',
+      password: '',
+      errorMessage: null
+    }
+    console.log(wrapper.state())
   });
 
   it('should fetch user credentials from database', () => {
@@ -20,15 +26,16 @@ describe('LogIn', () => {
       "email": "tman2272@aol.com",
       "password": "password"
     }
+
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         status: 200,
         json: () => Promise.resolve(userCredentials)
       })
-    }))
+    })
   })
 
-  it.skip('should match snapshot', () => {
+  it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
