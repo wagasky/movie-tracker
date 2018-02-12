@@ -45,7 +45,7 @@ export class FavoritesDisplay extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         { 
           this.props.userId &&
           this.renderFavorites() 
