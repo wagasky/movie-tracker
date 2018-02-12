@@ -3,10 +3,27 @@ import { Link, redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { toggleFavorite } from '../../actions/index';
 import { addFavorite, getFavorites, deleteFavorites } from '../../helper/apiCall.js';
-import icon from '../../assets/like.png';
+import iconInactive from '../../assets/like.png';
+import iconActive from '../../assets/like-active.png';
 import './Movie.css';
 
 export class Movie extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      favorite: this.props.favorite
+    }
+  }
+
+  setIcon = () => {
+    if(this.state.favorite) {
+      return iconActive;
+    } else {
+      return iconInactive;
+    }
+  }
+
   renderMovie = () => {
     const posterPath = this.props.poster; 
     const url = `https://image.tmdb.org/t/p/w500${ posterPath }`
@@ -23,7 +40,7 @@ export class Movie extends Component {
           <p>Release Date: { this.props.releaseDate }</p>
           <p>Popularity: { this.props.rating } %</p>
           <p>Overview: { this.props.overview }</p>
-          <img src={ icon }
+          <img src={ this.setIcon() }
                alt="favorite button" 
                className="favorite-icon" 
                onClick={ this.favoriteHandler } />
@@ -42,12 +59,11 @@ export class Movie extends Component {
     if (match) {
       const movieId = match.movie_id;
 
+      this.setState({ favorite: false })
       return deleteFavorites(userId, movieId)
     } else {
-      console.log('match')
-
+      this.setState({ favorite: true })
       return addFavorite(userId, movie)
-
     }
   }
 

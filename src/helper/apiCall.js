@@ -6,8 +6,11 @@ export const getMovies = async () => {
   try {
     const response = await fetch(url);
     const { results } = await response.json();
+    const cleanedMovies = results.map( movie => (
+      Object.assign(movie, { favorite: false })
+    ))
 
-    return results;
+    return cleanedMovies;
   } catch (error) {
     throw Error;
   }
