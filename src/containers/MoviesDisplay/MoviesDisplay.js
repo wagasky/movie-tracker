@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { loadMovies, toggleFavorite, showFavorites } from '../../actions/index.js';
+import { loadMovies, showFavorites } from '../../actions/index.js';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 import { getMovies } from '../../helper/apiCall';
 import Movie from '../Movie/Movie';
 import './MoviesDisplay.css'

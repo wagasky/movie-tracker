@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { redirect, withRouter, Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { setUser } from '../../actions/index';
 import { userSignIn, addNewUser } from '../../helper/apiCall'
 

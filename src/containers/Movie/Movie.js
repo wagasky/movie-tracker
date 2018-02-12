@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Link, redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { toggleFavorite } from '../../actions/index';
 import { addFavorite, getFavorites, deleteFavorites } from '../../helper/apiCall.js';
 import iconInactive from '../../assets/like.png';
 import iconActive from '../../assets/like-active.png';
