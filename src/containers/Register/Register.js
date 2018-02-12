@@ -13,7 +13,6 @@ export class Register extends Component {
       email: '',
       password: '',
       errorMessage: null,
-      newAcctMessage: null
     }
   }
 
@@ -30,9 +29,6 @@ export class Register extends Component {
     
     const { name, email, password } = this.state
     const results = await addNewUser({ name, email, password });
-    const userResults = await userSignIn(email, password);
-    const user = await userResults.data; 
-
     this.updateMessage(results)
   }
 
@@ -40,8 +36,18 @@ export class Register extends Component {
     if(results.status !== 'success') {
       this.setState({errorMessage: "That email is already registered. Please try again or login."})
     } else {
-      this.setState({newAcctMessage: "Registration successful. Please login."})
+      this.autoSignIn();
     }
+  }
+
+  autoSignIn = async () => {
+    const userEmail = this.state.email;
+    const userPassword = this.state.password;
+
+    const userResults = await userSignIn(userEmail, userPassword);
+    const user = await userResults.data; 
+    this.props.setUser(user)
+    this.props.history.push('/')
   }
 
   render() {
