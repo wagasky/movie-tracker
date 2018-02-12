@@ -29,12 +29,13 @@ export class FavoritesDisplay extends Component {
     this.setState({ favorites })
   }
 
-  renderFavorites = () => {
-
-    if(this.state.favorites.length === 0){
+  noFavorites = () => {
+    if(this.state.favorites.length === 0) {
       this.setState({favoritesAlert: 'You have no movies in your favorites.'})
     }
-  
+  }
+
+  renderFavorites = () => {
     return this.state.favorites.map( movie => {
       return (
         <Movie key={ movie.id }
@@ -51,11 +52,11 @@ export class FavoritesDisplay extends Component {
   render() {
     return (
       <div>
-        <h2>{this.state.favoritesAlert}</h2>
         { 
           this.props.userId &&
           this.renderFavorites() 
         }
+        <h2 className="favorites-alert">{this.state.favoritesAlert}</h2>
       </div>
     );
   }
