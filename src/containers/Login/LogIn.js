@@ -30,10 +30,9 @@ export class LogIn extends Component {
     e.preventDefault();
 
     const { email, password } = this.state
-    const results = await userSignIn( email, password );
-    const user = await results.data;
+    const user = await userSignIn( email, password );
 
-    if (!results) {
+    if (!user) {
       this.setState({ errorMessage: 'Your login is invalid. Please try again.'})
     } else {
       this.props.setUser(user);

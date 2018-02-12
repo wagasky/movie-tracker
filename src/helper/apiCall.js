@@ -1,20 +1,19 @@
 import apiKey from './apiKey';
-import { cleanedResults } from './helper';
-
-const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2018-02-06&primary_release_date.lte=2018-03-31/`;
 
 export const getMovies = async () => {
-  const response = await fetch(url);
-  const { results } = await response.json();
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2018-02-06&primary_release_date.lte=2018-03-31/`;
 
-  return cleanedResults(results);
-};
+  try {
+    const response = await fetch(url);
+    const { results } = await response.json();
+    const cleanedMovies = results.map( movie => (
+      Object.assign(movie, { favorite: false })
+    ))
 
-export const getAllUsers = async () => {
-  const response = await fetch('http://localhost:3001/api/users');
-  const { results } = await response.json();
-
-  return results;
+    return cleanedMovies;
+  } catch (error) {
+    throw Error;
+  }
 };
 
 export const userSignIn = async (email, password) => {
@@ -30,11 +29,11 @@ export const userSignIn = async (email, password) => {
       })
     });
 
-    const results = await response.json();
-    return results;
+    const { data } = await response.json();
 
+    return data;
   } catch (error) {
-    return false;
+    throw Error;
   }
 };
 
@@ -48,9 +47,11 @@ export const addNewUser = async (user) => {
       body: JSON.stringify(user)
     });
 
-    return await response.json();
+    const results = await response.json();
+
+    return results;
   } catch (error) {
-    return false;
+    throw Error;
   }
 
 };
@@ -79,7 +80,7 @@ export const addFavorite = async (user_id, movie) => {
 
     return results;
   } catch (error) {
-    return false;
+    throw Error;
   }
 
 };
@@ -91,7 +92,7 @@ export const getFavorites = async (id) => {
 
     return results;
   } catch (error) {
-    return false;
+    throw Error;
   }
 };
 
@@ -108,6 +109,17 @@ export const deleteFavorites = async (userId, movieId) => {
 
   return results;
   } catch (error) {
-    return false
+    throw Error;
+  }
+};
+
+export const getAllUsers = async () => {
+  try {
+    const response = await fetch('api/users');
+    const { results } = await response.json();
+
+    return results;
+  } catch (error) {
+    throw Error;
   }
 };
