@@ -67,7 +67,7 @@ export const mapStateToProps = (store) => ({
 })
 
 FavoritesDisplay.propTypes = {
-  userId: PropTypes.string,
+  userId: PropTypes.number,
   favorites: PropTypes.array,
   loadFavorites: PropTypes.func,
   noFavorites: PropTypes.func,
