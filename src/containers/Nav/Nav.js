@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logOutUser } from '../../actions/index';
 import { NavLink, withRouter } from 'react-router-dom';
-import './Nav.css'
+import './Nav.css';
+import PropTypes from 'prop-types';
 
 export class Nav extends Component {
+
   logOutUser = (user) => {
     this.props.logOutUser(user);
     this.props.history.push('/')
@@ -36,8 +38,6 @@ export class Nav extends Component {
   }
 }
 
-// route register to splash later
-
 export const mapStateToProps = (store) => ({
   user: store.current_user
 })
@@ -45,5 +45,11 @@ export const mapStateToProps = (store) => ({
 export const mapDispatchToProps = (dispatch) => ({
   logOutUser: (user) => dispatch(logOutUser(user))
 })
+
+Nav.propTypes = {
+  history: PropTypes.object,
+  user: PropTypes.object,
+  logOutUser: PropTypes.func,
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

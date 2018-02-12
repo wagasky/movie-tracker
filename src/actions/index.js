@@ -17,7 +17,6 @@ export const addFavorite = (userId, movieId) => ({
 export const showFavorites = (filter) => ({
   type: 'SHOW_FAVORITES',
   filter
-  //we would pass in the user id 
 })
 
 export const setUser = (user) => ({

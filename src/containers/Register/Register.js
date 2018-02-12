@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import { setUser } from '../../actions/index';
-import { userSignIn, addNewUser } from '../../helper/apiCall'
+import { userSignIn, addNewUser } from '../../helper/apiCall';
+import PropTypes from 'prop-types';
 
 export class Register extends Component {
   constructor(props) {
@@ -72,5 +73,15 @@ export const mapDispatchToProps = (dispatch) => ({
   addNewUser: (user) => dispatch(addNewUser(user)),
   setUser: (user) => dispatch(setUser(user))
 })
+
+Register.propTypes = {
+  history: PropTypes.object,
+  addNewUser: PropTypes.func,
+  setUser: PropTypes.func,
+  user: PropTypes.object,
+  registerSubmit: PropTypes.func,
+  updateMessage: PropTypes.func,
+  autoSignIn: PropTypes.func,
+}
 
 export default withRouter(connect(null, mapDispatchToProps)(Register));

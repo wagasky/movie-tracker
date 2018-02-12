@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LogIn from '../../containers/LogIn/LogIn';
 import Register from '../../containers/Register/Register'
 import './Splash.css';
+import PropTypes from 'prop-types';
 
 class Splash extends Component {
   renderComponent = () => {
@@ -18,6 +19,10 @@ class Splash extends Component {
       </div>
     )
   }
+}
+
+Splash.propTypes = {
+  location: PropTypes.object,
 }
 
 export default Splash;

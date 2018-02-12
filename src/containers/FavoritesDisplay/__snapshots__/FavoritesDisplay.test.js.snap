@@ -4,11 +4,7 @@ exports[`FavoritesDisplay should match snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <FavoritesDisplay
-    getFavorites={[MockFunction]}
-    loadFavorite={[MockFunction]}
-    renderFavorites={[MockFunction]}
-  />,
+  Symbol(enzyme.__unrendered__): <FavoritesDisplay />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -21,10 +17,30 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": undefined,
+      "children": Array [
+        undefined,
+        <h2
+          className="favorites-alert"
+        />,
+      ],
+      "className": "container",
     },
     "ref": null,
-    "rendered": null,
+    "rendered": Array [
+      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": null,
+          "className": "favorites-alert",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h2",
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -33,10 +49,30 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": undefined,
+        "children": Array [
+          undefined,
+          <h2
+            className="favorites-alert"
+          />,
+        ],
+        "className": "container",
       },
       "ref": null,
-      "rendered": null,
+      "rendered": Array [
+        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": null,
+            "className": "favorites-alert",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+      ],
       "type": "div",
     },
   ],
@@ -46,7 +82,6 @@ ShallowWrapper {
         "enableComponentDidUpdateOnSetState": true,
       },
     },
-    "disableLifecycleMethods": true,
   },
 }
 `;

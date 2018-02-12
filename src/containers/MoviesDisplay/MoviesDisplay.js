@@ -3,7 +3,8 @@ import { loadMovies, showFavorites } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import { getMovies } from '../../helper/apiCall';
 import Movie from '../Movie/Movie';
-import './MoviesDisplay.css'
+import './MoviesDisplay.css';
+import PropTypes from 'prop-types';
 
 export class MoviesDisplay extends Component {
   async componentDidMount() {
@@ -42,5 +43,11 @@ export const mapDispatchToProps = (dispatch) => ({
   loadMovies: movies => dispatch(loadMovies(movies)),
   showFavorites: filter => dispatch(showFavorites(filter))
 })
+
+MoviesDisplay.propTypes = {
+  movies: PropTypes.array,
+  loadMovies: PropTypes.func,
+  showFavorites: PropTypes.func,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesDisplay);

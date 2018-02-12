@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import moviesReducer from './moviesReducer';
+import { moviesReducer } from './moviesReducer';
 import * as actions from '../../actions';
 import mockData from '../../mockData';
 
