@@ -17,17 +17,17 @@ export class Movie extends Component {
   }
 
   componentDidMount() {
-    this.setFavoriteState()
+    this.setFavoriteState();
   }
 
   setFavoriteState = async () => {
-    const userId = this.props.current_user.id
-    const match = await this.findMatch(userId, this.props)
+    const userId = this.props.current_user.id;
+    const match = await this.findMatch(userId, this.props);
 
     if (match) {
-      this.setState({ favorite: true })
+      this.setState({ favorite: true });
     } else {
-      this.setState({ favorite: false })
+      this.setState({ favorite: false });
     }
   }
 
@@ -36,22 +36,22 @@ export class Movie extends Component {
     const match = data.find( favorite => {
       return (movie.id === favorite.movie_id) ||
              (movie.id === favorite.id)
-    })
+    });
 
     return match
   }
 
   checkFavorite = async () => {
-    const userId = this.props.current_user.id
-    const match = await this.findMatch(userId, this.props)
+    const userId = this.props.current_user.id;
+    const match = await this.findMatch(userId, this.props);
 
     if (match) {
       const movieId = match.movie_id;
 
-      this.setState({ favorite: false })
+      this.setState({ favorite: false });
       return deleteFavorites(userId, movieId)
     } else {
-      this.setState({ favorite: true })
+      this.setState({ favorite: true });
       return addFavorite(userId, this.props)
     }
   }

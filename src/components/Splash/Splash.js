@@ -22,7 +22,7 @@ class Splash extends Component {
 }
 
 Splash.propTypes = {
-  location: PropTypes.object,
+  location: PropTypes.object.isRequired,
 }
 
 export default Splash;
