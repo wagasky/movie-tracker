@@ -13,11 +13,11 @@ export class Nav extends Component {
 
     if (this.props.user.name) {
      return (
-        <div>
-          <nav> 
-            <NavLink to='/' className='nav'>All Movies</NavLink>
-            <NavLink to='/favorites' className='nav'>Favorites</NavLink>
-            <button onClick={this.logOutUser}>Logout</button>
+        <div className='nav-wrapper'>
+          <nav className='navbar'> 
+            <NavLink to='/' className='nav movies'>All Movies</NavLink>
+            <NavLink to='/favorites' className='nav favorites'>Favorites</NavLink>
+            <button onClick={this.logOutUser} className='nav logout'>Logout</button>
           </nav>
         </div>
         )

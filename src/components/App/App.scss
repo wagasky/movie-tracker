@@ -22,6 +22,46 @@
   font-size: large;
 }
 
+.nav-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  transform: translate(-50%,-50%);
+}
+
+.navbar {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 5px solid #49b293;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav {
+  height: 8px;
+  width: 60px;
+  background-color: #fff;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+.navbar .movies{
+        top: 25px;
+        left: 20px;
+}
+
+.navbar .favorites{
+        top: 45px;
+        left: 20px;
+}
+
+.navbar .logout{
+        top: 65px;
+        left: 20px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
