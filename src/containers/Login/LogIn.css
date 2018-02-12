@@ -14,6 +14,10 @@ input {
   margin-bottom: 15px;
 }
 
+.submit-button hover {
+  border: none;
+}
+
 form {
   margin: auto;
   width: 350px;

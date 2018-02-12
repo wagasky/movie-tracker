@@ -92,14 +92,3 @@ export const mapStateToProps = (store) => ({
 })
 
 export default withRouter(connect(mapStateToProps, null)(Movie));
-
-
-
-  // for displaying individual movies:
-  // const displayMovies = movies.map((movie, i) => {
-  //   return (
-  //     <Link to={`/movies/${movie.id}`} >
-  //       <img src={movie.image} key={i} />
-  //     </Link>
-  //   )
-  // })
