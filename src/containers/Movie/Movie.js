@@ -12,16 +12,60 @@ export class Movie extends Component {
     super(props);
 
     this.state = {
-      favorite: this.props.favorite
+      favorite: false
+    }
+  }
+
+  componentDidMount() {
+    this.setFavoriteState()
+  }
+
+  setFavoriteState = async () => {
+    const userId = this.props.current_user.id
+    const match = await this.findMatch(userId, this.props)
+
+    if (match) {
+      this.setState({ favorite: true })
+    } else {
+      this.setState({ favorite: false })
+    }
+  }
+
+  findMatch = async (userId, movie) => {
+    const { data } = await getFavorites(userId);
+    const match = data.find( favorite => {
+      return (movie.id === favorite.movie_id) ||
+             (movie.id === favorite.id)
+    })
+
+    return match
+  }
+
+  checkFavorite = async () => {
+    const userId = this.props.current_user.id
+    const match = await this.findMatch(userId, this.props)
+
+    if (match) {
+      const movieId = match.movie_id;
+
+      this.setState({ favorite: false })
+      return deleteFavorites(userId, movieId)
+    } else {
+      this.setState({ favorite: true })
+      return addFavorite(userId, this.props)
+    }
+  }
+
+  favoriteHandler = () => {
+    if(this.props.current_user.id) {
+      this.checkFavorite();
+    } else {
+      this.props.history.push('/login');
     }
   }
 
   setIcon = () => {
-    if(this.state.favorite) {
-      return iconActive;
-    } else {
-      return iconInactive;
-    }
+    return this.state.favorite ? iconActive : iconInactive
   }
 
   renderMovie = () => {
@@ -47,35 +91,6 @@ export class Movie extends Component {
         </div>
       </div>
     )
-  }
-
-  checkFavorite = async (userId, movie) => {
-    const { data } = await getFavorites(userId);
-    const match = data.find( favorite => {
-      return (movie.id === favorite.movie_id) ||
-             (movie.id === favorite.id)
-    })
-
-    if (match) {
-      const movieId = match.movie_id;
-
-      this.setState({ favorite: false })
-      return deleteFavorites(userId, movieId)
-    } else {
-      this.setState({ favorite: true })
-      return addFavorite(userId, movie)
-    }
-  }
-
-  favoriteHandler = () => {
-    if(this.props.current_user.id) {
-      const userId = this.props.current_user.id;
-      const movie = this.props;
-
-      this.checkFavorite(userId, movie);
-    } else {
-      this.props.history.push('/login');
-    }
   }
 
   render() {
