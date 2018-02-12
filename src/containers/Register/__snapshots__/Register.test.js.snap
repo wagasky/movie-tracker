@@ -118,7 +118,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": null,
+            "children": undefined,
             "className": "acct-create",
           },
           "ref": null,
@@ -320,7 +320,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": null,
+              "children": undefined,
               "className": "acct-create",
             },
             "ref": null,

@@ -5,6 +5,7 @@ import MoviesDisplay from '../../containers/MoviesDisplay/MoviesDisplay';
 import FavoritesDisplay from '../../containers/FavoritesDisplay/FavoritesDisplay';
 import Nav from '../../containers/Nav/Nav';
 
+
 import './App.css';
 
 class App extends Component {

@@ -3,7 +3,7 @@
 import * as actions from './index';
 import mockData from '../mockData';
 
-describe.only('all actions', () => {
+describe('all actions', () => {
 
   it('should return a type of LOAD_MOVIES, with movies', () => {
     const movies = mockData;
@@ -26,9 +26,7 @@ describe.only('all actions', () => {
     expect(actions.toggleFavorite(id)).toEqual(expected);
   })
 
-  // getting a TypeError: environment.dispose is not a function
-
-  it.skip('should return a type of ADD_FAVORITE, with a userId and movieID', () => {
+  it('should return a type of ADD_FAVORITE, with a userId and movieID', () => {
     const userId = 0;
     const movieId = 0
     const expected = {
@@ -83,6 +81,4 @@ describe.only('all actions', () => {
 
     expect(actions.addNewUser(userName, userEmail, userPassword)).toEqual(expected)
   })
-
-
 })

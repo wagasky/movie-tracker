@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getFavorites } from '../../helper/apiCall';
 import Movie from '../Movie/Movie';
+import PropTypes from 'prop-types';
 
 export class FavoritesDisplay extends Component {
   constructor() {
@@ -65,4 +66,10 @@ export const mapStateToProps = (store) => ({
   userId: store.current_user.id
 })
 
+FavoritesDisplay.propTypes = {
+  userId: PropTypes.string,
+  favorites: PropTypes.array,
+  loadFavorites: PropTypes.func,
+  noFavorites: PropTypes.func,
+}
 export default connect(mapStateToProps, null)(FavoritesDisplay);

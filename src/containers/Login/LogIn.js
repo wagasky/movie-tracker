@@ -4,7 +4,8 @@ import { setUser } from '../../actions/index';
 import { userSignIn } from '../../helper/apiCall';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './LogIn.css'
+import './LogIn.css';
+import PropTypes from 'prop-types';
 
 export class LogIn extends Component {
   constructor(props) {
@@ -66,5 +67,11 @@ export class LogIn extends Component {
 export const mapDispatchToProps = (dispatch) => ({
   setUser: (user) => dispatch(setUser(user)),
 });
+
+LogIn.propTypes = {
+  setUser: PropTypes.func,
+  loginSubmit: PropTypes.func,
+  history: PropTypes.object,
+}
 
 export default withRouter(connect(null, mapDispatchToProps)(LogIn));

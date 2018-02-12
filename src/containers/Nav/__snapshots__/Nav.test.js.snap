@@ -23,7 +23,9 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <nav>
+      "children": <nav
+        className="nav-menu"
+      >
         <NavLink
           activeClassName="active"
           ariaCurrent="true"
@@ -41,6 +43,7 @@ ShallowWrapper {
           Favorites
         </NavLink>
         <button
+          className="logout-button"
           onClick={[Function]}
         >
           Logout
@@ -71,11 +74,13 @@ ShallowWrapper {
             Favorites
           </NavLink>,
           <button
+            className="logout-button"
             onClick={[Function]}
           >
             Logout
           </button>,
         ],
+        "className": "nav-menu",
       },
       "ref": null,
       "rendered": Array [
@@ -115,6 +120,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Logout",
+            "className": "logout-button",
             "onClick": [Function],
           },
           "ref": null,
@@ -132,7 +138,9 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <nav>
+        "children": <nav
+          className="nav-menu"
+        >
           <NavLink
             activeClassName="active"
             ariaCurrent="true"
@@ -150,6 +158,7 @@ ShallowWrapper {
             Favorites
           </NavLink>
           <button
+            className="logout-button"
             onClick={[Function]}
           >
             Logout
@@ -180,11 +189,13 @@ ShallowWrapper {
               Favorites
             </NavLink>,
             <button
+              className="logout-button"
               onClick={[Function]}
             >
               Logout
             </button>,
           ],
+          "className": "nav-menu",
         },
         "ref": null,
         "rendered": Array [
@@ -224,6 +235,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Logout",
+              "className": "logout-button",
               "onClick": [Function],
             },
             "ref": null,

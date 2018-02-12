@@ -1,10 +1,10 @@
 /* eslint-disable */
 
-import favoritesReducer from './favoritesReducer';
+import { favoritesReducer } from './favoritesReducer';
 import * as actions from '../../actions';
 import mockData from '../../mockData';
 
-Describe('favoritesReducer', () => {
+describe('favoritesReducer', () => {
 
   it('should return the default state', () => {
     const expected = [];

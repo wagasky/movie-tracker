@@ -5,6 +5,7 @@ import { addFavorite, getFavorites, deleteFavorites } from '../../helper/apiCall
 import iconInactive from '../../assets/like.png';
 import iconActive from '../../assets/like-active.png';
 import './Movie.css';
+import PropTypes from 'prop-types';
 
 export class Movie extends Component {
   constructor(props) {
@@ -91,15 +92,14 @@ export const mapStateToProps = (store) => ({
   current_user: store.current_user,
 })
 
+Movie.propTypes = {
+  history: PropTypes.object,
+  setIcon: PropTypes.func,
+  renderMovie: PropTypes.func,
+  checkFavorite: PropTypes.func,
+  favoriteHandler: PropTypes.func,
+  movies: PropTypes.array,
+  current_user: PropTypes.object
+}
+
 export default withRouter(connect(mapStateToProps, null)(Movie));
-
-
-
-  // for displaying individual movies:
-  // const displayMovies = movies.map((movie, i) => {
-  //   return (
-  //     <Link to={`/movies/${movie.id}`} >
-  //       <img src={movie.image} key={i} />
-  //     </Link>
-  //   )
-  // })

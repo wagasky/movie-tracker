@@ -1,10 +1,11 @@
 /* eslint-disable */
 
-import moviesReducer from './moviesReducer';
+import { moviesReducer } from './moviesReducer';
 import * as actions from '../../actions';
 import mockData from '../../mockData';
 
 describe('moviesReducer', () => {
+  let mockData;
 
   it('should return the default state', () => {
     const expected = [];
@@ -15,7 +16,7 @@ describe('moviesReducer', () => {
   it('should return the state with an array of movies', () => {
     const expected = mockData;
 
-    expect(moviesReducer(undefined, actions.loadMovies(movies))).toEqual(expected)
+    expect(moviesReducer(undefined, actions.loadMovies(mockData))).toEqual(expected)
   })
 
   it('should return the state with favorite set to true', () => {

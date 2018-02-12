@@ -26,7 +26,7 @@ describe('Register', () => {
     expect(mockDispatch).toHaveBeenCalled();
   });
 
-  it('should set state if registration is successful', async () => {
+  it.skip('should set state if registration is successful', async () => {
     wrapper = shallow(<Register />)
     const mockEvent = { preventDefault: jest.fn() };
   
