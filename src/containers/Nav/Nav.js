@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logOutUser } from '../../actions/index';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
 export class Nav extends Component {
   logOutUser = (user) => {
     this.props.logOutUser(user);
+    this.props.history.push('/')
   }
 
   render() {
@@ -44,4 +45,4 @@ export const mapDispatchToProps = (dispatch) => ({
   logOutUser: (user) => dispatch(logOutUser(user))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));
