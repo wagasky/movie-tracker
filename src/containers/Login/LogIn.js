@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { setUser } from '../../actions/index';
-import * as actions from '../../actions/index';
 import { userSignIn } from '../../helper/apiCall';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -30,10 +29,9 @@ export class LogIn extends Component {
     e.preventDefault();
 
     const { email, password } = this.state
-    const results = await userSignIn( email, password );
-    const user = await results.data;
+    const user = await userSignIn( email, password );
 
-    if (!results) {
+    if (!user) {
       this.setState({ errorMessage: 'Your login is invalid. Please try again.'})
     } else {
       this.props.setUser(user);

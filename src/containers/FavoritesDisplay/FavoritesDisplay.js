@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getFavorites } from '../../helper/apiCall';
 import Movie from '../Movie/Movie';
@@ -51,7 +50,7 @@ export class FavoritesDisplay extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         { 
           this.props.userId &&
           this.renderFavorites() 

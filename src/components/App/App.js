@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { loadMovies, toggleFavorite, showFavorites } from '../../actions/index.js';
-import { getMovies, getAllUsers } from '../../helper/apiCall';
-import { connect } from 'react-redux';
-import { Route, NavLink, Switch, Link } from 'react-router-dom';
-import { withRouter } from 'react-router';
-import LogIn from '../../containers/LogIn/LogIn';
-import Register from '../../containers/Register/Register';
+import { Route } from 'react-router-dom';
 import Splash from '../../components/Splash/Splash';
 import MoviesDisplay from '../../containers/MoviesDisplay/MoviesDisplay';
 import FavoritesDisplay from '../../containers/FavoritesDisplay/FavoritesDisplay';
