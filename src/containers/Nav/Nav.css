@@ -6,12 +6,15 @@
   min-height: 20px;
   position: relative;
   font-family: 'Roboto', sans-serif;
+  box-shadow: 3px 3px 3px grey; 
 }
 
 .nav {
   color: white;
   text-decoration: none;
   background: black;
+
+
 }
 
 button {
