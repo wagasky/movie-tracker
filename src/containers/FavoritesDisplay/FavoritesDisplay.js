@@ -32,7 +32,7 @@ export class FavoritesDisplay extends Component {
   renderFavorites = () => {
 
     if(this.state.favorites.length === 0){
-      this.setState({favoritesAlert: 'You have no favorite movies.'})
+      this.setState({favoritesAlert: 'You have no movies in your favorites.'})
     }
   
     return this.state.favorites.map( movie => {
